@@ -2,7 +2,40 @@ import { useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 
 const IPHONE_IMG = "https://cdn.poehali.dev/projects/d95b19c0-a2f8-4978-9726-cdd1105ad3bd/files/5944eaab-97bb-4462-b0c9-1bbb3277c0e1.jpg";
-const LOGO_IMG = "https://cdn.poehali.dev/files/3193e853-0354-4ba8-acbc-859fc0076302.png";
+
+const NztLogo = ({ size = 28 }: { size?: number }) => (
+  <svg
+    width={size * 0.7}
+    height={size}
+    viewBox="0 0 100 144"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    style={{ display: "block", filter: "drop-shadow(0 0 8px rgba(0,255,133,0.35))" }}
+  >
+    <defs>
+      <linearGradient id="nztLogoGrad" x1="0" y1="0" x2="100" y2="144" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="#7CFFB2" />
+        <stop offset="50%" stopColor="#00FF85" />
+        <stop offset="100%" stopColor="#1ED760" />
+      </linearGradient>
+    </defs>
+    <rect
+      x="3"
+      y="3"
+      width="94"
+      height="138"
+      rx="47"
+      ry="47"
+      fill="none"
+      stroke="url(#nztLogoGrad)"
+      strokeWidth="4"
+    />
+    <path
+      d="M58 20 L30 78 L48 78 L40 124 L72 60 L52 60 L62 20 Z"
+      fill="url(#nztLogoGrad)"
+    />
+  </svg>
+);
 
 export default function Index() {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -34,8 +67,8 @@ export default function Index() {
       {/* NAV */}
       <nav className="fixed top-0 left-0 right-0 z-50" style={{ background: "rgba(11,11,11,0.82)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <img src={LOGO_IMG} alt="NZT VPN" style={{ width: 32, height: 32, objectFit: "contain" }} />
+          <div className="flex items-center" style={{ gap: 10 }}>
+            <NztLogo size={28} />
             <span style={{ fontSize: 18, fontWeight: 700, color: "#FFFFFF", letterSpacing: "-0.02em" }}>NZT VPN</span>
           </div>
           <div className="hidden md:flex items-center gap-8">
@@ -558,8 +591,8 @@ export default function Index() {
         <div className="max-w-6xl mx-auto px-6 py-12">
           <div className="flex flex-col md:flex-row justify-between gap-8">
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <img src={LOGO_IMG} alt="NZT VPN" style={{ width: 32, height: 32, objectFit: "contain" }} />
+              <div className="flex items-center mb-4" style={{ gap: 10 }}>
+                <NztLogo size={28} />
                 <span style={{ fontSize: 18, fontWeight: 700, color: "#FFFFFF", letterSpacing: "-0.02em" }}>NZT VPN</span>
               </div>
               <p style={{ fontSize: 14, color: "#8A8A8A", lineHeight: 1.7, maxWidth: 260 }}>
