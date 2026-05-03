@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 
 const IPHONE_IMG = "https://cdn.poehali.dev/projects/d95b19c0-a2f8-4978-9726-cdd1105ad3bd/files/5944eaab-97bb-4462-b0c9-1bbb3277c0e1.jpg";
-const LOGO_3D = "https://cdn.poehali.dev/projects/d95b19c0-a2f8-4978-9726-cdd1105ad3bd/files/eff23527-3c1f-440e-92d2-0d9a88512b7e.jpg";
 
 const NztLogo = ({ size = 28 }: { size?: number }) => (
   <svg
@@ -260,37 +259,144 @@ export default function Index() {
                       position: "relative",
                       zIndex: 2
                     }}>
-                      <div style={{ position: "relative", width: 130, height: 130, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                        {/* Multi-layer glow */}
+                      <div style={{ position: "relative", width: 110, height: 150, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        {/* Outer halo glow */}
                         <div style={{
                           position: "absolute",
-                          inset: -40,
-                          background: "radial-gradient(circle, rgba(0,255,133,0.55) 0%, rgba(0,255,133,0.18) 45%, transparent 70%)",
-                          filter: "blur(24px)",
+                          inset: -50,
+                          background: "radial-gradient(circle, rgba(0,255,133,0.55) 0%, rgba(0,255,133,0.18) 40%, transparent 70%)",
+                          filter: "blur(28px)",
                           borderRadius: "50%"
                         }} className="glow-pulse" />
                         <div style={{
                           position: "absolute",
-                          inset: -16,
+                          inset: -20,
                           background: "radial-gradient(circle, rgba(124,255,178,0.35) 0%, transparent 65%)",
-                          filter: "blur(10px)",
+                          filter: "blur(14px)",
                           borderRadius: "50%"
                         }} />
 
-                        {/* 3D glass logo render */}
-                        <img
-                          src={LOGO_3D}
-                          alt="NZT"
+                        {/* 3D Glass logo — pure inline SVG, no background, no container */}
+                        <svg
+                          width="110"
+                          height="150"
+                          viewBox="0 0 110 150"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
                           style={{
-                            width: 130,
-                            height: 130,
-                            objectFit: "contain",
                             position: "relative",
                             zIndex: 1,
-                            mixBlendMode: "screen",
-                            filter: "drop-shadow(0 8px 24px rgba(0,255,133,0.5)) drop-shadow(0 0 30px rgba(0,255,133,0.3))"
+                            filter: "drop-shadow(0 0 20px rgba(0,255,133,0.85)) drop-shadow(0 12px 30px rgba(0,255,133,0.35))"
                           }}
-                        />
+                        >
+                          <defs>
+                            {/* Glass body gradient — translucent emerald */}
+                            <linearGradient id="glassBody" x1="0" y1="0" x2="110" y2="150" gradientUnits="userSpaceOnUse">
+                              <stop offset="0%" stopColor="#7CFFB2" stopOpacity="0.55" />
+                              <stop offset="50%" stopColor="#00FF88" stopOpacity="0.4" />
+                              <stop offset="100%" stopColor="#00A555" stopOpacity="0.6" />
+                            </linearGradient>
+                            {/* Bevel edge stroke */}
+                            <linearGradient id="glassEdge" x1="0" y1="0" x2="0" y2="150" gradientUnits="userSpaceOnUse">
+                              <stop offset="0%" stopColor="#A8FFCC" />
+                              <stop offset="50%" stopColor="#00FF88" />
+                              <stop offset="100%" stopColor="#1ED760" />
+                            </linearGradient>
+                            {/* Inner top highlight */}
+                            <linearGradient id="topHighlight" x1="0" y1="0" x2="0" y2="60" gradientUnits="userSpaceOnUse">
+                              <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.6" />
+                              <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
+                            </linearGradient>
+                            {/* Bolt fill with depth */}
+                            <linearGradient id="boltFill" x1="0" y1="0" x2="0" y2="150" gradientUnits="userSpaceOnUse">
+                              <stop offset="0%" stopColor="#B8FFD9" />
+                              <stop offset="50%" stopColor="#00FF88" />
+                              <stop offset="100%" stopColor="#00B963" />
+                            </linearGradient>
+                            {/* Inner glow filter */}
+                            <filter id="innerGlow" x="-20%" y="-20%" width="140%" height="140%">
+                              <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
+                              <feComposite in="blur" in2="SourceGraphic" operator="atop" />
+                            </filter>
+                          </defs>
+
+                          {/* Glass pill body — translucent fill */}
+                          <rect
+                            x="6"
+                            y="6"
+                            width="98"
+                            height="138"
+                            rx="49"
+                            ry="49"
+                            fill="url(#glassBody)"
+                            opacity="0.45"
+                          />
+
+                          {/* Outer bevel edge */}
+                          <rect
+                            x="6"
+                            y="6"
+                            width="98"
+                            height="138"
+                            rx="49"
+                            ry="49"
+                            fill="none"
+                            stroke="url(#glassEdge)"
+                            strokeWidth="2.5"
+                          />
+
+                          {/* Inner edge for thickness */}
+                          <rect
+                            x="11"
+                            y="11"
+                            width="88"
+                            height="128"
+                            rx="44"
+                            ry="44"
+                            fill="none"
+                            stroke="rgba(124,255,178,0.4)"
+                            strokeWidth="1"
+                          />
+
+                          {/* Top glossy highlight — gives glass shine */}
+                          <path
+                            d="M 30 12 Q 55 8 80 12 Q 92 22 88 38 Q 55 30 22 38 Q 18 22 30 12 Z"
+                            fill="url(#topHighlight)"
+                            opacity="0.7"
+                          />
+
+                          {/* Lightning bolt — bright glass with bevel */}
+                          <path
+                            d="M62 24 L34 80 L50 80 L42 126 L74 64 L54 64 L64 24 Z"
+                            fill="url(#boltFill)"
+                          />
+
+                          {/* Bolt highlight stroke */}
+                          <path
+                            d="M62 24 L34 80 L50 80 L42 126 L74 64 L54 64 L64 24 Z"
+                            fill="none"
+                            stroke="#E8FFF1"
+                            strokeWidth="1.2"
+                            opacity="0.8"
+                            strokeLinejoin="round"
+                          />
+
+                          {/* Bolt inner shine line */}
+                          <path
+                            d="M60 30 L40 76"
+                            stroke="rgba(255,255,255,0.7)"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                          />
+
+                          {/* Side rim light on bolt */}
+                          <path
+                            d="M64 26 L54 64"
+                            stroke="rgba(255,255,255,0.5)"
+                            strokeWidth="1"
+                            strokeLinecap="round"
+                          />
+                        </svg>
                       </div>
                       <div style={{
                         fontSize: 22,
