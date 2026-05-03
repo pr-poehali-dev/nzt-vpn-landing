@@ -74,7 +74,8 @@ export default function Index() {
           <div className="hidden md:flex items-center gap-8">
             <button className="nav-link" onClick={() => scrollTo("features")}>Возможности</button>
             <button className="nav-link" onClick={() => scrollTo("devices")}>Устройства</button>
-            <button className="nav-link" onClick={() => scrollTo("payment")}>Тарифы</button>
+            <button className="nav-link" onClick={() => scrollTo("pricing")}>Тарифы</button>
+            <button className="nav-link" onClick={() => scrollTo("payment")}>Оплата</button>
           </div>
           <button className="btn-primary" style={{ padding: "10px 24px", fontSize: 14 }}>
             Подключиться
@@ -598,20 +599,194 @@ export default function Index() {
             ))}
           </div>
 
-          {/* Pricing teaser */}
-          <div className="glass-green fade-in-up" style={{ borderRadius: 24, padding: "40px", textAlign: "center" }}>
-            <div style={{ fontSize: 13, color: "#00FF85", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase", marginBottom: 16 }}>
-              Специальное предложение
+        </div>
+      </section>
+
+      <div className="separator-line" style={{ maxWidth: "80%", margin: "0 auto" }} />
+
+      {/* PRICING */}
+      <section id="pricing" className="py-32" style={{ backgroundColor: "#0B0B0B" }}>
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <div className="trust-badge w-fit mx-auto mb-6 fade-in-up">
+              <Icon name="Sparkles" size={14} style={{ color: "#00FF85" }} />
+              <span>Тарифы</span>
             </div>
-            <div style={{ fontSize: "clamp(40px, 6vw, 64px)", fontWeight: 900, color: "#FFFFFF", letterSpacing: "-0.04em", lineHeight: 1, marginBottom: 8 }}>
-              от 99 ₽
-              <span style={{ fontSize: 20, color: "#8A8A8A", fontWeight: 500 }}> / мес</span>
-            </div>
-            <p style={{ fontSize: 15, color: "#8A8A8A", marginBottom: 28 }}>Все устройства · Без логов · Отмена в любой момент</p>
-            <button className="btn-primary" style={{ fontSize: 16, padding: "16px 48px" }}>
-              Начать бесплатно
-            </button>
+            <h2 className="fade-in-up delay-1" style={{ fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 800, letterSpacing: "-0.03em", color: "#FFFFFF" }}>
+              Выбери свой<br />
+              <span className="nzt-gradient-text">уровень свободы</span>
+            </h2>
+            <p className="fade-in-up delay-2" style={{ fontSize: 16, color: "#8A8A8A", marginTop: 12 }}>
+              Чем дольше период — тем выгоднее
+            </p>
           </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* BASIC PLAN */}
+            <div className="fade-in-up delay-1" style={{
+              background: "rgba(255,255,255,0.03)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              borderRadius: 24,
+              padding: "36px 32px",
+              position: "relative"
+            }}>
+              <div style={{ marginBottom: 28 }}>
+                <div style={{ fontSize: 13, color: "#8A8A8A", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 8 }}>
+                  Базовый
+                </div>
+                <h3 style={{ fontSize: 28, fontWeight: 800, color: "#FFFFFF", letterSpacing: "-0.02em", marginBottom: 8 }}>
+                  Универсальные сервера
+                </h3>
+                <p style={{ fontSize: 14, color: "#8A8A8A", lineHeight: 1.6 }}>
+                  Идеален для повседневного использования
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-3 mb-8">
+                {[
+                  { period: "1 месяц", price: "169", per: "169 ₽/мес" },
+                  { period: "3 месяца", price: "449", per: "150 ₽/мес" },
+                  { period: "12 месяцев", price: "1390", per: "116 ₽/мес", best: true }
+                ].map((t) => (
+                  <div key={t.period} style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    padding: "14px 18px",
+                    background: t.best ? "rgba(0,255,133,0.06)" : "rgba(255,255,255,0.02)",
+                    border: t.best ? "1px solid rgba(0,255,133,0.2)" : "1px solid rgba(255,255,255,0.06)",
+                    borderRadius: 12,
+                    cursor: "pointer",
+                    transition: "all 0.2s"
+                  }}>
+                    <div>
+                      <div style={{ fontSize: 14, color: "#FFFFFF", fontWeight: 600, marginBottom: 2 }}>{t.period}</div>
+                      <div style={{ fontSize: 12, color: "#8A8A8A" }}>{t.per}</div>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                      {t.best && (
+                        <span style={{ fontSize: 10, color: "#00FF85", fontWeight: 700, background: "rgba(0,255,133,0.1)", padding: "3px 8px", borderRadius: 4, letterSpacing: "0.05em" }}>
+                          ВЫГОДНО
+                        </span>
+                      )}
+                      <div style={{ fontSize: 20, fontWeight: 800, color: "#FFFFFF", letterSpacing: "-0.02em" }}>
+                        {t.price} ₽
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col gap-2 mb-8">
+                {["Высокая скорость", "60+ серверов", "До 6 устройств", "Без логов"].map((f) => (
+                  <div key={f} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    <Icon name="Check" size={16} style={{ color: "#00FF85" }} />
+                    <span style={{ fontSize: 14, color: "#CFCFCF" }}>{f}</span>
+                  </div>
+                ))}
+              </div>
+
+              <button className="btn-secondary" style={{ width: "100%", padding: "14px" }}>
+                Выбрать Базовый
+              </button>
+            </div>
+
+            {/* PRO PLAN */}
+            <div className="fade-in-up delay-2" style={{
+              background: "linear-gradient(180deg, rgba(0,255,133,0.06) 0%, rgba(0,255,133,0.02) 100%)",
+              border: "1px solid rgba(0,255,133,0.25)",
+              borderRadius: 24,
+              padding: "36px 32px",
+              position: "relative",
+              boxShadow: "0 20px 60px rgba(0,255,133,0.08)"
+            }}>
+              <div style={{
+                position: "absolute",
+                top: -12,
+                right: 24,
+                background: "linear-gradient(135deg, #00FF85, #1ED760)",
+                color: "#0B0B0B",
+                fontSize: 11,
+                fontWeight: 800,
+                letterSpacing: "0.08em",
+                padding: "6px 14px",
+                borderRadius: 999,
+                textTransform: "uppercase"
+              }}>
+                Рекомендуем
+              </div>
+
+              <div style={{ marginBottom: 28 }}>
+                <div style={{ fontSize: 13, color: "#00FF85", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 8 }}>
+                  PRO
+                </div>
+                <h3 style={{ fontSize: 28, fontWeight: 800, color: "#FFFFFF", letterSpacing: "-0.02em", marginBottom: 8 }}>
+                  Обход ограничений
+                </h3>
+                <p style={{ fontSize: 14, color: "#8A8A8A", lineHeight: 1.6 }}>
+                  Доступ к любым сервисам, даже самым строгим
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-3 mb-8">
+                {[
+                  { period: "1 месяц", price: "249", per: "249 ₽/мес" },
+                  { period: "3 месяца", price: "649", per: "216 ₽/мес" },
+                  { period: "12 месяцев", price: "1790", per: "149 ₽/мес", best: true }
+                ].map((t) => (
+                  <div key={t.period} style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    padding: "14px 18px",
+                    background: t.best ? "rgba(0,255,133,0.1)" : "rgba(0,255,133,0.03)",
+                    border: t.best ? "1px solid rgba(0,255,133,0.35)" : "1px solid rgba(0,255,133,0.12)",
+                    borderRadius: 12,
+                    cursor: "pointer",
+                    transition: "all 0.2s"
+                  }}>
+                    <div>
+                      <div style={{ fontSize: 14, color: "#FFFFFF", fontWeight: 600, marginBottom: 2 }}>{t.period}</div>
+                      <div style={{ fontSize: 12, color: "#8A8A8A" }}>{t.per}</div>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                      {t.best && (
+                        <span style={{ fontSize: 10, color: "#0B0B0B", fontWeight: 800, background: "#00FF85", padding: "3px 8px", borderRadius: 4, letterSpacing: "0.05em" }}>
+                          ХИТ
+                        </span>
+                      )}
+                      <div style={{ fontSize: 20, fontWeight: 800, color: "#FFFFFF", letterSpacing: "-0.02em" }}>
+                        {t.price} ₽
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col gap-2 mb-8">
+                {[
+                  "Всё из Базового",
+                  "Обход блокировок YouTube",
+                  "Доступ к ChatGPT, Netflix",
+                  "Приоритетная поддержка",
+                  "Максимальная скорость"
+                ].map((f) => (
+                  <div key={f} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    <Icon name="Check" size={16} style={{ color: "#00FF85" }} />
+                    <span style={{ fontSize: 14, color: "#FFFFFF", fontWeight: 500 }}>{f}</span>
+                  </div>
+                ))}
+              </div>
+
+              <button className="btn-primary" style={{ width: "100%", padding: "14px" }}>
+                Выбрать PRO
+              </button>
+            </div>
+          </div>
+
+          <p className="fade-in-up delay-3" style={{ textAlign: "center", fontSize: 13, color: "#8A8A8A", marginTop: 32 }}>
+            7 дней бесплатно · Отмена в любой момент · Без скрытых платежей
+          </p>
         </div>
       </section>
 
