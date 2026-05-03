@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 
-const IPHONE_IMG = "https://cdn.poehali.dev/projects/d95b19c0-a2f8-4978-9726-cdd1105ad3bd/files/7f1cea2e-8fcc-4732-a344-ffea8069fc4c.jpg";
+const IPHONE_IMG = "https://cdn.poehali.dev/projects/d95b19c0-a2f8-4978-9726-cdd1105ad3bd/files/b5adf952-3f4c-4101-a3af-d59a5ffc9b53.jpg";
 const LOGO_IMG = "https://cdn.poehali.dev/files/3193e853-0354-4ba8-acbc-859fc0076302.png";
 
 export default function Index() {
