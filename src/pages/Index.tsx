@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 
 const IPHONE_IMG = "https://cdn.poehali.dev/projects/d95b19c0-a2f8-4978-9726-cdd1105ad3bd/files/5944eaab-97bb-4462-b0c9-1bbb3277c0e1.jpg";
-const LOGO_3D = "https://cdn.poehali.dev/projects/d95b19c0-a2f8-4978-9726-cdd1105ad3bd/files/e34f6ed4-99df-4009-b731-d580a50d8441.jpg";
+const LOGO_3D = "https://cdn.poehali.dev/projects/d95b19c0-a2f8-4978-9726-cdd1105ad3bd/files/eff23527-3c1f-440e-92d2-0d9a88512b7e.jpg";
 
 const NztLogo = ({ size = 28 }: { size?: number }) => (
   <svg
