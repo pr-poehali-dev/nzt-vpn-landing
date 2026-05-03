@@ -276,104 +276,126 @@ export default function Index() {
                           borderRadius: "50%"
                         }} />
 
-                        {/* 3D Glass logo — pure inline SVG, no background, no container */}
+                        {/* 3D Glass NZT pill — elongated vertical capsule */}
                         <svg
-                          width="110"
-                          height="150"
-                          viewBox="0 0 110 150"
+                          width="90"
+                          height="160"
+                          viewBox="0 0 90 180"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
                           style={{
                             position: "relative",
                             zIndex: 1,
-                            filter: "drop-shadow(0 0 20px rgba(0,255,133,0.85)) drop-shadow(0 12px 30px rgba(0,255,133,0.35))"
+                            filter: "drop-shadow(0 0 24px rgba(0,255,133,0.9)) drop-shadow(0 14px 36px rgba(0,255,133,0.4))"
                           }}
                         >
                           <defs>
-                            {/* Glass body gradient — translucent emerald */}
-                            <linearGradient id="glassBody" x1="0" y1="0" x2="110" y2="150" gradientUnits="userSpaceOnUse">
-                              <stop offset="0%" stopColor="#7CFFB2" stopOpacity="0.55" />
-                              <stop offset="50%" stopColor="#00FF88" stopOpacity="0.4" />
-                              <stop offset="100%" stopColor="#00A555" stopOpacity="0.6" />
+                            {/* Inner energy gradient — bright core */}
+                            <radialGradient id="pillCore" cx="50%" cy="50%" r="55%">
+                              <stop offset="0%" stopColor="#A8FFCF" stopOpacity="0.85" />
+                              <stop offset="40%" stopColor="#00FF88" stopOpacity="0.6" />
+                              <stop offset="100%" stopColor="#005A2E" stopOpacity="0.7" />
+                            </radialGradient>
+                            {/* Glass body — translucent emerald with depth */}
+                            <linearGradient id="pillGlass" x1="0" y1="0" x2="90" y2="180" gradientUnits="userSpaceOnUse">
+                              <stop offset="0%" stopColor="#9FFFC7" stopOpacity="0.6" />
+                              <stop offset="50%" stopColor="#00FF88" stopOpacity="0.35" />
+                              <stop offset="100%" stopColor="#00773F" stopOpacity="0.55" />
                             </linearGradient>
-                            {/* Bevel edge stroke */}
-                            <linearGradient id="glassEdge" x1="0" y1="0" x2="0" y2="150" gradientUnits="userSpaceOnUse">
-                              <stop offset="0%" stopColor="#A8FFCC" />
+                            {/* Crystal bevel edge */}
+                            <linearGradient id="pillEdge" x1="45" y1="0" x2="45" y2="180" gradientUnits="userSpaceOnUse">
+                              <stop offset="0%" stopColor="#D4FFE5" />
                               <stop offset="50%" stopColor="#00FF88" />
                               <stop offset="100%" stopColor="#1ED760" />
                             </linearGradient>
-                            {/* Inner top highlight */}
-                            <linearGradient id="topHighlight" x1="0" y1="0" x2="0" y2="60" gradientUnits="userSpaceOnUse">
-                              <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.6" />
+                            {/* Top glossy reflection */}
+                            <linearGradient id="topGloss" x1="0" y1="0" x2="0" y2="80" gradientUnits="userSpaceOnUse">
+                              <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.7" />
                               <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
                             </linearGradient>
-                            {/* Bolt fill with depth */}
-                            <linearGradient id="boltFill" x1="0" y1="0" x2="0" y2="150" gradientUnits="userSpaceOnUse">
-                              <stop offset="0%" stopColor="#B8FFD9" />
-                              <stop offset="50%" stopColor="#00FF88" />
-                              <stop offset="100%" stopColor="#00B963" />
+                            {/* Bolt fill — energetic bright */}
+                            <linearGradient id="boltGlow" x1="0" y1="20" x2="0" y2="160" gradientUnits="userSpaceOnUse">
+                              <stop offset="0%" stopColor="#FFFFFF" />
+                              <stop offset="40%" stopColor="#A8FFCF" />
+                              <stop offset="100%" stopColor="#00FF88" />
                             </linearGradient>
-                            {/* Inner glow filter */}
-                            <filter id="innerGlow" x="-20%" y="-20%" width="140%" height="140%">
-                              <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
-                              <feComposite in="blur" in2="SourceGraphic" operator="atop" />
-                            </filter>
                           </defs>
 
-                          {/* Glass pill body — translucent fill */}
+                          {/* Layer 1: Inner energy core (radial glow inside pill) */}
                           <rect
                             x="6"
                             y="6"
-                            width="98"
-                            height="138"
-                            rx="49"
-                            ry="49"
-                            fill="url(#glassBody)"
-                            opacity="0.45"
+                            width="78"
+                            height="168"
+                            rx="39"
+                            ry="39"
+                            fill="url(#pillCore)"
+                            opacity="0.55"
                           />
 
-                          {/* Outer bevel edge */}
+                          {/* Layer 2: Translucent glass body */}
                           <rect
                             x="6"
                             y="6"
-                            width="98"
-                            height="138"
-                            rx="49"
-                            ry="49"
+                            width="78"
+                            height="168"
+                            rx="39"
+                            ry="39"
+                            fill="url(#pillGlass)"
+                            opacity="0.5"
+                          />
+
+                          {/* Layer 3: Outer bevel edge — bright crystal */}
+                          <rect
+                            x="6"
+                            y="6"
+                            width="78"
+                            height="168"
+                            rx="39"
+                            ry="39"
                             fill="none"
-                            stroke="url(#glassEdge)"
+                            stroke="url(#pillEdge)"
                             strokeWidth="2.5"
                           />
 
-                          {/* Inner edge for thickness */}
+                          {/* Layer 4: Inner thickness edge */}
                           <rect
                             x="11"
                             y="11"
-                            width="88"
-                            height="128"
-                            rx="44"
-                            ry="44"
+                            width="68"
+                            height="158"
+                            rx="34"
+                            ry="34"
                             fill="none"
-                            stroke="rgba(124,255,178,0.4)"
+                            stroke="rgba(168,255,207,0.5)"
                             strokeWidth="1"
                           />
 
-                          {/* Top glossy highlight — gives glass shine */}
+                          {/* Layer 5: Top glossy highlight (curved like real glass) */}
                           <path
-                            d="M 30 12 Q 55 8 80 12 Q 92 22 88 38 Q 55 30 22 38 Q 18 22 30 12 Z"
-                            fill="url(#topHighlight)"
-                            opacity="0.7"
+                            d="M 22 12 Q 45 6 68 12 Q 78 22 74 42 Q 45 32 16 42 Q 12 22 22 12 Z"
+                            fill="url(#topGloss)"
+                            opacity="0.75"
                           />
 
-                          {/* Lightning bolt — bright glass with bevel */}
+                          {/* Layer 6: Side rim light (left) */}
                           <path
-                            d="M62 24 L34 80 L50 80 L42 126 L74 64 L54 64 L64 24 Z"
-                            fill="url(#boltFill)"
+                            d="M 8 50 Q 6 90 8 130"
+                            stroke="rgba(168,255,207,0.5)"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            fill="none"
                           />
 
-                          {/* Bolt highlight stroke */}
+                          {/* Layer 7: Lightning bolt — embedded inside pill, energetic */}
                           <path
-                            d="M62 24 L34 80 L50 80 L42 126 L74 64 L54 64 L64 24 Z"
+                            d="M52 28 L26 92 L44 92 L34 152 L66 78 L48 78 L58 28 Z"
+                            fill="url(#boltGlow)"
+                          />
+
+                          {/* Bolt rim highlight */}
+                          <path
+                            d="M52 28 L26 92 L44 92 L34 152 L66 78 L48 78 L58 28 Z"
                             fill="none"
                             stroke="#E8FFF1"
                             strokeWidth="1.2"
@@ -381,18 +403,18 @@ export default function Index() {
                             strokeLinejoin="round"
                           />
 
-                          {/* Bolt inner shine line */}
+                          {/* Bolt inner energy line */}
                           <path
-                            d="M60 30 L40 76"
-                            stroke="rgba(255,255,255,0.7)"
-                            strokeWidth="1.5"
+                            d="M50 34 L32 88"
+                            stroke="rgba(255,255,255,0.85)"
+                            strokeWidth="1.6"
                             strokeLinecap="round"
                           />
 
-                          {/* Side rim light on bolt */}
+                          {/* Bolt secondary highlight */}
                           <path
-                            d="M64 26 L54 64"
-                            stroke="rgba(255,255,255,0.5)"
+                            d="M58 30 L48 76"
+                            stroke="rgba(255,255,255,0.55)"
                             strokeWidth="1"
                             strokeLinecap="round"
                           />
