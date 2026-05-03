@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 
 const IPHONE_IMG = "https://cdn.poehali.dev/projects/d95b19c0-a2f8-4978-9726-cdd1105ad3bd/files/5944eaab-97bb-4462-b0c9-1bbb3277c0e1.jpg";
+const LOGO_3D = "https://cdn.poehali.dev/projects/d95b19c0-a2f8-4978-9726-cdd1105ad3bd/files/e34f6ed4-99df-4009-b731-d580a50d8441.jpg";
 
 const NztLogo = ({ size = 28 }: { size?: number }) => (
   <svg
@@ -259,62 +260,37 @@ export default function Index() {
                       position: "relative",
                       zIndex: 2
                     }}>
-                      <div style={{ position: "relative", width: 90, height: 90, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <div style={{ position: "relative", width: 130, height: 130, display: "flex", alignItems: "center", justifyContent: "center" }}>
                         {/* Multi-layer glow */}
                         <div style={{
                           position: "absolute",
-                          inset: -36,
-                          background: "radial-gradient(circle, rgba(0,255,133,0.55) 0%, rgba(0,255,133,0.2) 40%, transparent 70%)",
-                          filter: "blur(20px)",
+                          inset: -40,
+                          background: "radial-gradient(circle, rgba(0,255,133,0.55) 0%, rgba(0,255,133,0.18) 45%, transparent 70%)",
+                          filter: "blur(24px)",
                           borderRadius: "50%"
                         }} className="glow-pulse" />
                         <div style={{
                           position: "absolute",
-                          inset: -12,
-                          background: "radial-gradient(circle, rgba(124,255,178,0.4) 0%, transparent 60%)",
-                          filter: "blur(8px)",
+                          inset: -16,
+                          background: "radial-gradient(circle, rgba(124,255,178,0.35) 0%, transparent 65%)",
+                          filter: "blur(10px)",
                           borderRadius: "50%"
                         }} />
 
-                        {/* Pure SVG logo — no background, no container */}
-                        <svg
-                          width="64"
-                          height="92"
-                          viewBox="0 0 100 144"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
+                        {/* 3D glass logo render */}
+                        <img
+                          src={LOGO_3D}
+                          alt="NZT"
                           style={{
+                            width: 130,
+                            height: 130,
+                            objectFit: "contain",
                             position: "relative",
                             zIndex: 1,
-                            filter: "drop-shadow(0 0 18px rgba(0,255,133,0.85)) drop-shadow(0 0 36px rgba(0,255,133,0.4))"
+                            mixBlendMode: "screen",
+                            filter: "drop-shadow(0 8px 24px rgba(0,255,133,0.5)) drop-shadow(0 0 30px rgba(0,255,133,0.3))"
                           }}
-                        >
-                          <defs>
-                            <linearGradient id="nztGrad" x1="0" y1="0" x2="100" y2="144" gradientUnits="userSpaceOnUse">
-                              <stop offset="0%" stopColor="#7CFFB2" />
-                              <stop offset="50%" stopColor="#00FF85" />
-                              <stop offset="100%" stopColor="#1ED760" />
-                            </linearGradient>
-                          </defs>
-                          {/* Pill outline */}
-                          <rect
-                            x="2"
-                            y="2"
-                            width="96"
-                            height="140"
-                            rx="48"
-                            ry="48"
-                            fill="none"
-                            stroke="url(#nztGrad)"
-                            strokeWidth="3"
-                            opacity="0.85"
-                          />
-                          {/* Lightning bolt filled */}
-                          <path
-                            d="M58 20 L30 78 L48 78 L40 124 L72 60 L52 60 L62 20 Z"
-                            fill="url(#nztGrad)"
-                          />
-                        </svg>
+                        />
                       </div>
                       <div style={{
                         fontSize: 22,
