@@ -169,40 +169,39 @@ export default function Index() {
                       zIndex: 5
                     }} />
 
-                    {/* Soft signal waves background */}
-                    <div style={{
+                    {/* Soft signal waves — animated radial pulses */}
+                    <div className="signal-wave" style={{
                       position: "absolute",
-                      top: "42%",
+                      top: "44%",
                       left: "50%",
-                      transform: "translate(-50%, -50%)",
-                      width: 240,
-                      height: 240,
+                      width: 140,
+                      height: 140,
                       borderRadius: "50%",
-                      border: "1px solid rgba(0,255,133,0.08)",
+                      border: "1px solid rgba(0,255,133,0.35)",
                       pointerEvents: "none"
                     }} />
-                    <div style={{
+                    <div className="signal-wave" style={{
                       position: "absolute",
-                      top: "42%",
+                      top: "44%",
                       left: "50%",
-                      transform: "translate(-50%, -50%)",
-                      width: 180,
-                      height: 180,
+                      width: 140,
+                      height: 140,
                       borderRadius: "50%",
-                      border: "1px solid rgba(0,255,133,0.12)",
-                      pointerEvents: "none"
+                      border: "1px solid rgba(0,255,133,0.25)",
+                      pointerEvents: "none",
+                      animationDelay: "1.2s"
                     }} />
-                    <div style={{
+                    <div className="signal-wave" style={{
                       position: "absolute",
-                      top: "42%",
+                      top: "44%",
                       left: "50%",
-                      transform: "translate(-50%, -50%)",
-                      width: 130,
-                      height: 130,
+                      width: 140,
+                      height: 140,
                       borderRadius: "50%",
                       border: "1px solid rgba(0,255,133,0.18)",
-                      pointerEvents: "none"
-                    }} className="glow-pulse" />
+                      pointerEvents: "none",
+                      animationDelay: "2.4s"
+                    }} />
 
                     {/* Top wordmark */}
                     <div style={{
@@ -227,27 +226,62 @@ export default function Index() {
                       position: "relative",
                       zIndex: 2
                     }}>
-                      <div style={{ position: "relative" }}>
+                      <div style={{ position: "relative", width: 90, height: 90, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        {/* Multi-layer glow */}
                         <div style={{
                           position: "absolute",
-                          inset: -28,
-                          background: "radial-gradient(circle, rgba(0,255,133,0.5) 0%, transparent 65%)",
-                          filter: "blur(16px)",
+                          inset: -36,
+                          background: "radial-gradient(circle, rgba(0,255,133,0.55) 0%, rgba(0,255,133,0.2) 40%, transparent 70%)",
+                          filter: "blur(20px)",
                           borderRadius: "50%"
                         }} className="glow-pulse" />
-                        <img
-                          src={LOGO_IMG}
-                          alt="NZT"
+                        <div style={{
+                          position: "absolute",
+                          inset: -12,
+                          background: "radial-gradient(circle, rgba(124,255,178,0.4) 0%, transparent 60%)",
+                          filter: "blur(8px)",
+                          borderRadius: "50%"
+                        }} />
+
+                        {/* Pure SVG logo — no background, no container */}
+                        <svg
+                          width="64"
+                          height="92"
+                          viewBox="0 0 100 144"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
                           style={{
-                            width: 80,
-                            height: 80,
-                            objectFit: "contain",
                             position: "relative",
                             zIndex: 1,
-                            mixBlendMode: "screen",
-                            filter: "drop-shadow(0 0 18px rgba(0,255,133,0.7))"
+                            filter: "drop-shadow(0 0 18px rgba(0,255,133,0.85)) drop-shadow(0 0 36px rgba(0,255,133,0.4))"
                           }}
-                        />
+                        >
+                          <defs>
+                            <linearGradient id="nztGrad" x1="0" y1="0" x2="100" y2="144" gradientUnits="userSpaceOnUse">
+                              <stop offset="0%" stopColor="#7CFFB2" />
+                              <stop offset="50%" stopColor="#00FF85" />
+                              <stop offset="100%" stopColor="#1ED760" />
+                            </linearGradient>
+                          </defs>
+                          {/* Pill outline */}
+                          <rect
+                            x="2"
+                            y="2"
+                            width="96"
+                            height="140"
+                            rx="48"
+                            ry="48"
+                            fill="none"
+                            stroke="url(#nztGrad)"
+                            strokeWidth="3"
+                            opacity="0.85"
+                          />
+                          {/* Lightning bolt filled */}
+                          <path
+                            d="M58 20 L30 78 L48 78 L40 124 L72 60 L52 60 L62 20 Z"
+                            fill="url(#nztGrad)"
+                          />
+                        </svg>
                       </div>
                       <div style={{
                         fontSize: 22,
