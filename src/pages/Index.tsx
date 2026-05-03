@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 
-const IPHONE_IMG = "https://cdn.poehali.dev/projects/d95b19c0-a2f8-4978-9726-cdd1105ad3bd/files/20c543b2-da20-4d14-a38f-0c0c6e9d485e.jpg";
+const IPHONE_IMG = "https://cdn.poehali.dev/projects/d95b19c0-a2f8-4978-9726-cdd1105ad3bd/files/7f1cea2e-8fcc-4732-a344-ffea8069fc4c.jpg";
+const LOGO_IMG = "https://cdn.poehali.dev/files/3193e853-0354-4ba8-acbc-859fc0076302.png";
 
 export default function Index() {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -34,7 +35,7 @@ export default function Index() {
       <nav className="fixed top-0 left-0 right-0 z-50" style={{ background: "rgba(11,11,11,0.82)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="glow-pulse" style={{ width: 8, height: 8, borderRadius: "50%", background: "#00FF85", boxShadow: "0 0 8px rgba(0,255,133,0.8)" }} />
+            <img src={LOGO_IMG} alt="NZT VPN" style={{ width: 32, height: 32, objectFit: "contain" }} />
             <span style={{ fontSize: 18, fontWeight: 700, color: "#FFFFFF", letterSpacing: "-0.02em" }}>NZT VPN</span>
           </div>
           <div className="hidden md:flex items-center gap-8">
@@ -370,7 +371,7 @@ export default function Index() {
           <div className="flex flex-col md:flex-row justify-between gap-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <div className="glow-pulse" style={{ width: 8, height: 8, borderRadius: "50%", background: "#00FF85", boxShadow: "0 0 8px rgba(0,255,133,0.8)" }} />
+                <img src={LOGO_IMG} alt="NZT VPN" style={{ width: 32, height: 32, objectFit: "contain" }} />
                 <span style={{ fontSize: 18, fontWeight: 700, color: "#FFFFFF", letterSpacing: "-0.02em" }}>NZT VPN</span>
               </div>
               <p style={{ fontSize: 14, color: "#8A8A8A", lineHeight: 1.7, maxWidth: 260 }}>
