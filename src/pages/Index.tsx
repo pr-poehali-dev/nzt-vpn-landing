@@ -116,105 +116,173 @@ export default function Index() {
               </div>
             </div>
 
-            {/* Right — iPhone */}
+            {/* Right — iPhone CSS Mockup */}
             <div className="flex justify-center items-center py-20">
-              <div className="float-anim relative" style={{ maxWidth: 340, width: "100%" }}>
+              <div className="float-anim relative" style={{ width: 300 }}>
+                {/* Ambient glow */}
                 <div style={{
-                  position: "absolute", inset: -60,
-                  background: "radial-gradient(circle, rgba(0,255,133,0.14) 0%, transparent 70%)",
-                  borderRadius: "50%", filter: "blur(20px)"
+                  position: "absolute", inset: -80,
+                  background: "radial-gradient(circle, rgba(0,255,133,0.18) 0%, transparent 70%)",
+                  borderRadius: "50%", filter: "blur(30px)"
                 }} className="glow-pulse" />
 
-                <div style={{ position: "relative", zIndex: 1 }}>
-                  <img
-                    src={IPHONE_IMG}
-                    alt="NZT VPN"
-                    style={{
-                      width: "100%",
-                      borderRadius: 36,
-                      display: "block",
-                      filter: "drop-shadow(0 40px 80px rgba(0,0,0,0.9)) drop-shadow(0 0 40px rgba(0,255,133,0.12))"
-                    }}
-                  />
-
-                  {/* Phone screen UI overlay */}
+                {/* Phone frame */}
+                <div style={{
+                  position: "relative",
+                  width: "100%",
+                  aspectRatio: "9 / 19",
+                  background: "linear-gradient(145deg, #2a2a2a 0%, #0a0a0a 50%, #1a1a1a 100%)",
+                  borderRadius: 44,
+                  padding: 10,
+                  boxShadow: `
+                    0 40px 80px rgba(0,0,0,0.7),
+                    0 0 0 1.5px rgba(255,255,255,0.08),
+                    inset 0 0 0 1px rgba(255,255,255,0.04),
+                    0 0 60px rgba(0,255,133,0.15)
+                  `,
+                  zIndex: 1
+                }}>
+                  {/* Screen */}
                   <div style={{
-                    position: "absolute",
-                    top: "12%",
-                    left: "16%",
-                    right: "16%",
-                    bottom: "12%",
+                    position: "relative",
+                    width: "100%",
+                    height: "100%",
+                    background: "radial-gradient(ellipse at 50% 30%, #0a3a26 0%, #051a12 40%, #000000 100%)",
+                    borderRadius: 36,
+                    overflow: "hidden",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "space-between",
-                    padding: "8% 4%",
-                    pointerEvents: "none"
+                    padding: "44px 24px 28px"
                   }}>
-                    {/* Top: NZT VPN wordmark */}
+                    {/* Notch */}
                     <div style={{
-                      fontSize: 11,
-                      color: "rgba(255,255,255,0.6)",
+                      position: "absolute",
+                      top: 12,
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      width: 95,
+                      height: 28,
+                      background: "#000000",
+                      borderRadius: 999,
+                      zIndex: 5
+                    }} />
+
+                    {/* Soft signal waves background */}
+                    <div style={{
+                      position: "absolute",
+                      top: "42%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                      width: 240,
+                      height: 240,
+                      borderRadius: "50%",
+                      border: "1px solid rgba(0,255,133,0.08)",
+                      pointerEvents: "none"
+                    }} />
+                    <div style={{
+                      position: "absolute",
+                      top: "42%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                      width: 180,
+                      height: 180,
+                      borderRadius: "50%",
+                      border: "1px solid rgba(0,255,133,0.12)",
+                      pointerEvents: "none"
+                    }} />
+                    <div style={{
+                      position: "absolute",
+                      top: "42%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                      width: 130,
+                      height: 130,
+                      borderRadius: "50%",
+                      border: "1px solid rgba(0,255,133,0.18)",
+                      pointerEvents: "none"
+                    }} className="glow-pulse" />
+
+                    {/* Top wordmark */}
+                    <div style={{
+                      fontSize: 10,
+                      color: "rgba(255,255,255,0.5)",
                       fontWeight: 600,
-                      letterSpacing: "0.18em",
-                      textTransform: "uppercase"
+                      letterSpacing: "0.22em",
+                      textTransform: "uppercase",
+                      marginTop: 8,
+                      position: "relative",
+                      zIndex: 2
                     }}>
                       NZT VPN
                     </div>
 
-                    {/* Center: Logo + status */}
-                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14 }}>
+                    {/* Center: logo + Подключено */}
+                    <div style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      gap: 18,
+                      position: "relative",
+                      zIndex: 2
+                    }}>
                       <div style={{ position: "relative" }}>
                         <div style={{
                           position: "absolute",
-                          inset: -20,
-                          background: "radial-gradient(circle, rgba(0,255,133,0.4) 0%, transparent 70%)",
-                          filter: "blur(12px)",
+                          inset: -28,
+                          background: "radial-gradient(circle, rgba(0,255,133,0.5) 0%, transparent 65%)",
+                          filter: "blur(16px)",
                           borderRadius: "50%"
                         }} className="glow-pulse" />
                         <img
                           src={LOGO_IMG}
                           alt="NZT"
                           style={{
-                            width: 72,
-                            height: 72,
+                            width: 80,
+                            height: 80,
                             objectFit: "contain",
                             position: "relative",
                             zIndex: 1,
-                            filter: "drop-shadow(0 0 20px rgba(0,255,133,0.6))"
+                            mixBlendMode: "screen",
+                            filter: "drop-shadow(0 0 18px rgba(0,255,133,0.7))"
                           }}
                         />
                       </div>
                       <div style={{
-                        fontSize: 17,
-                        fontWeight: 700,
+                        fontSize: 22,
+                        fontWeight: 600,
                         color: "#FFFFFF",
                         letterSpacing: "-0.02em",
-                        textShadow: "0 0 16px rgba(0,255,133,0.4)"
+                        textShadow: "0 0 20px rgba(0,255,133,0.3)"
                       }}>
                         Подключено
                       </div>
                       <div style={{
-                        fontSize: 10,
-                        color: "rgba(255,255,255,0.5)",
+                        fontSize: 11,
+                        color: "rgba(255,255,255,0.45)",
                         fontWeight: 500,
-                        letterSpacing: "0.02em"
+                        letterSpacing: "0.04em"
                       }}>
                         Амстердам · 245 Mbps
                       </div>
                     </div>
 
-                    {/* Bottom: action button */}
+                    {/* Bottom button */}
                     <div style={{
-                      background: "rgba(255,255,255,0.08)",
-                      border: "1px solid rgba(255,255,255,0.12)",
-                      borderRadius: 999,
-                      padding: "8px 22px",
-                      backdropFilter: "blur(10px)",
-                      fontSize: 11,
+                      width: "100%",
+                      background: "rgba(255,255,255,0.06)",
+                      border: "1px solid rgba(255,255,255,0.1)",
+                      borderRadius: 14,
+                      padding: "14px 0",
+                      textAlign: "center",
+                      backdropFilter: "blur(12px)",
+                      fontSize: 13,
                       color: "rgba(255,255,255,0.85)",
                       fontWeight: 600,
-                      letterSpacing: "0.02em"
+                      letterSpacing: "0.01em",
+                      position: "relative",
+                      zIndex: 2
                     }}>
                       Отключить
                     </div>
