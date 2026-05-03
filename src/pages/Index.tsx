@@ -721,10 +721,10 @@ export default function Index() {
                   PRO
                 </div>
                 <h3 style={{ fontSize: 28, fontWeight: 800, color: "#FFFFFF", letterSpacing: "-0.02em", marginBottom: 8 }}>
-                  Обход ограничений
+                  Расширенный доступ
                 </h3>
                 <p style={{ fontSize: 14, color: "#8A8A8A", lineHeight: 1.6 }}>
-                  Доступ к любым сервисам, даже самым строгим
+                  Надёжная работа при любых условиях
                 </p>
               </div>
 
@@ -766,10 +766,10 @@ export default function Index() {
               <div className="flex flex-col gap-2 mb-8">
                 {[
                   "Всё из Базового",
-                  "Обход блокировок YouTube",
-                  "Доступ к ChatGPT, Netflix",
-                  "Приоритетная поддержка",
-                  "Максимальная скорость"
+                  "Премиум-сервера с низкой нагрузкой",
+                  "Стабильное соединение 24/7",
+                  "Максимальная скорость",
+                  "Приоритетная поддержка"
                 ].map((f) => (
                   <div key={f} style={{ display: "flex", alignItems: "center", gap: 10 }}>
                     <Icon name="Check" size={16} style={{ color: "#00FF85" }} />
