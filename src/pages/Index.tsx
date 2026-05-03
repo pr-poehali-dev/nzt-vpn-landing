@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 
-const IPHONE_IMG = "https://cdn.poehali.dev/projects/d95b19c0-a2f8-4978-9726-cdd1105ad3bd/files/638ade79-0a23-44f2-b846-186afe81e827.jpg";
+const IPHONE_IMG = "https://cdn.poehali.dev/projects/d95b19c0-a2f8-4978-9726-cdd1105ad3bd/files/5944eaab-97bb-4462-b0c9-1bbb3277c0e1.jpg";
 const LOGO_IMG = "https://cdn.poehali.dev/files/3193e853-0354-4ba8-acbc-859fc0076302.png";
 
 export default function Index() {
@@ -118,22 +118,108 @@ export default function Index() {
 
             {/* Right — iPhone */}
             <div className="flex justify-center items-center py-20">
-              <div className="float-anim relative">
+              <div className="float-anim relative" style={{ maxWidth: 340, width: "100%" }}>
                 <div style={{
                   position: "absolute", inset: -60,
                   background: "radial-gradient(circle, rgba(0,255,133,0.14) 0%, transparent 70%)",
                   borderRadius: "50%", filter: "blur(20px)"
                 }} className="glow-pulse" />
-                <img
-                  src={IPHONE_IMG}
-                  alt="NZT VPN Interface"
-                  style={{
-                    width: "100%", maxWidth: 340,
-                    borderRadius: 36,
-                    position: "relative", zIndex: 1,
-                    filter: "drop-shadow(0 40px 80px rgba(0,0,0,0.9)) drop-shadow(0 0 40px rgba(0,255,133,0.12))"
-                  }}
-                />
+
+                <div style={{ position: "relative", zIndex: 1 }}>
+                  <img
+                    src={IPHONE_IMG}
+                    alt="NZT VPN"
+                    style={{
+                      width: "100%",
+                      borderRadius: 36,
+                      display: "block",
+                      filter: "drop-shadow(0 40px 80px rgba(0,0,0,0.9)) drop-shadow(0 0 40px rgba(0,255,133,0.12))"
+                    }}
+                  />
+
+                  {/* Phone screen UI overlay */}
+                  <div style={{
+                    position: "absolute",
+                    top: "12%",
+                    left: "16%",
+                    right: "16%",
+                    bottom: "12%",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    padding: "8% 4%",
+                    pointerEvents: "none"
+                  }}>
+                    {/* Top: NZT VPN wordmark */}
+                    <div style={{
+                      fontSize: 11,
+                      color: "rgba(255,255,255,0.6)",
+                      fontWeight: 600,
+                      letterSpacing: "0.18em",
+                      textTransform: "uppercase"
+                    }}>
+                      NZT VPN
+                    </div>
+
+                    {/* Center: Logo + status */}
+                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14 }}>
+                      <div style={{ position: "relative" }}>
+                        <div style={{
+                          position: "absolute",
+                          inset: -20,
+                          background: "radial-gradient(circle, rgba(0,255,133,0.4) 0%, transparent 70%)",
+                          filter: "blur(12px)",
+                          borderRadius: "50%"
+                        }} className="glow-pulse" />
+                        <img
+                          src={LOGO_IMG}
+                          alt="NZT"
+                          style={{
+                            width: 72,
+                            height: 72,
+                            objectFit: "contain",
+                            position: "relative",
+                            zIndex: 1,
+                            filter: "drop-shadow(0 0 20px rgba(0,255,133,0.6))"
+                          }}
+                        />
+                      </div>
+                      <div style={{
+                        fontSize: 17,
+                        fontWeight: 700,
+                        color: "#FFFFFF",
+                        letterSpacing: "-0.02em",
+                        textShadow: "0 0 16px rgba(0,255,133,0.4)"
+                      }}>
+                        Подключено
+                      </div>
+                      <div style={{
+                        fontSize: 10,
+                        color: "rgba(255,255,255,0.5)",
+                        fontWeight: 500,
+                        letterSpacing: "0.02em"
+                      }}>
+                        Амстердам · 245 Mbps
+                      </div>
+                    </div>
+
+                    {/* Bottom: action button */}
+                    <div style={{
+                      background: "rgba(255,255,255,0.08)",
+                      border: "1px solid rgba(255,255,255,0.12)",
+                      borderRadius: 999,
+                      padding: "8px 22px",
+                      backdropFilter: "blur(10px)",
+                      fontSize: 11,
+                      color: "rgba(255,255,255,0.85)",
+                      fontWeight: 600,
+                      letterSpacing: "0.02em"
+                    }}>
+                      Отключить
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
