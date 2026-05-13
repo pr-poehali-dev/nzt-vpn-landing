@@ -327,7 +327,7 @@ export default function Index() {
 
               <div
                 className="float-anim relative phone-perspective"
-                style={{ width: 360, zIndex: 2 }}
+                style={{ width: 320, zIndex: 2 }}
               >
                 {/* Ambient glow */}
                 <div
@@ -601,98 +601,299 @@ export default function Index() {
                       </div>
                     </div>
 
-                    {/* Status text — "Подключено" + city + speed */}
+                    {/* === VPN APP UI === */}
+
+                    {/* Connection status text */}
                     <div
                       style={{
                         position: "absolute",
-                        bottom: 116,
+                        top: 96,
                         left: 0,
                         right: 0,
                         textAlign: "center",
                         zIndex: 4,
                       }}
                     >
-                      <div style={{
-                        fontSize: 17,
-                        fontWeight: 700,
-                        color: "#FFFFFF",
-                        letterSpacing: "-0.01em",
-                        marginBottom: 4,
-                      }}>
+                      <div
+                        style={{
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: 6,
+                          padding: "4px 10px",
+                          borderRadius: 999,
+                          background: "rgba(0,255,133,0.10)",
+                          border: "1px solid rgba(0,255,133,0.25)",
+                          marginBottom: 10,
+                        }}
+                      >
+                        <span
+                          style={{
+                            width: 6,
+                            height: 6,
+                            borderRadius: "50%",
+                            background: "#00FF85",
+                            boxShadow: "0 0 6px #00FF85",
+                          }}
+                        />
+                        <span
+                          style={{
+                            fontSize: 10,
+                            fontWeight: 600,
+                            color: "#00FF85",
+                            letterSpacing: "0.04em",
+                            textTransform: "uppercase",
+                          }}
+                        >
+                          Connected
+                        </span>
+                      </div>
+                      <div
+                        style={{
+                          fontSize: 18,
+                          fontWeight: 700,
+                          color: "#FFFFFF",
+                          letterSpacing: "-0.01em",
+                        }}
+                      >
                         Подключено
                       </div>
-                      <div style={{
-                        fontSize: 11,
-                        color: "rgba(255,255,255,0.55)",
-                        fontWeight: 500,
-                        letterSpacing: "0.02em",
-                      }}>
-                        Амстердам · 245 Mbps
+                      <div
+                        style={{
+                          fontSize: 11,
+                          color: "rgba(255,255,255,0.5)",
+                          fontWeight: 500,
+                          marginTop: 2,
+                        }}
+                      >
+                        Защищено · WireGuard
                       </div>
                     </div>
 
-                    {/* Bottom button — "Отключить" with lock icon */}
+                    {/* Central CONNECT button — circular power button */}
                     <div
                       style={{
                         position: "absolute",
-                        bottom: 58,
-                        left: 16,
-                        right: 16,
+                        top: "44%",
+                        left: "50%",
+                        transform: "translate(-50%, -50%)",
+                        width: 128,
+                        height: 128,
+                        zIndex: 4,
+                      }}
+                    >
+                      {/* Soft halo */}
+                      <div
+                        style={{
+                          position: "absolute",
+                          inset: -32,
+                          background:
+                            "radial-gradient(circle, rgba(0,255,133,0.45) 0%, rgba(0,255,133,0.10) 50%, transparent 75%)",
+                          filter: "blur(22px)",
+                          borderRadius: "50%",
+                        }}
+                        className="glow-pulse"
+                      />
+
+                      {/* Outer thin ring */}
+                      <div
+                        style={{
+                          position: "absolute",
+                          inset: 0,
+                          borderRadius: "50%",
+                          border: "1px solid rgba(0,255,133,0.25)",
+                        }}
+                      />
+                      {/* Inner button */}
+                      <div
+                        style={{
+                          position: "absolute",
+                          inset: 10,
+                          borderRadius: "50%",
+                          background:
+                            "radial-gradient(circle at 50% 35%, #1a1a1a 0%, #0d0d0d 100%)",
+                          border: "1px solid rgba(0,255,133,0.45)",
+                          boxShadow:
+                            "inset 0 1px 0 rgba(255,255,255,0.08), 0 0 24px rgba(0,255,133,0.30)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexDirection: "column",
+                          gap: 4,
+                        }}
+                      >
+                        <Icon
+                          name="Power"
+                          size={28}
+                          style={{
+                            color: "#00FF85",
+                            filter: "drop-shadow(0 0 8px rgba(0,255,133,0.7))",
+                          }}
+                        />
+                        <span
+                          style={{
+                            fontSize: 9,
+                            fontWeight: 700,
+                            color: "rgba(255,255,255,0.55)",
+                            letterSpacing: "0.18em",
+                          }}
+                        >
+                          ON
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Server card */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        bottom: 138,
+                        left: 14,
+                        right: 14,
                         background: "rgba(255,255,255,0.04)",
                         border: "1px solid rgba(255,255,255,0.08)",
-                        borderRadius: 16,
-                        padding: "11px 14px",
+                        borderRadius: 14,
+                        padding: "10px 12px",
                         display: "flex",
                         alignItems: "center",
-                        justifyContent: "center",
                         gap: 10,
                         backdropFilter: "blur(14px)",
                         WebkitBackdropFilter: "blur(14px)",
                         zIndex: 4,
                       }}
                     >
-                      <div style={{
-                        width: 22,
-                        height: 22,
-                        borderRadius: "50%",
-                        background: "rgba(0,255,133,0.12)",
-                        border: "1px solid rgba(0,255,133,0.30)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}>
-                        <Icon name="Lock" size={11} style={{ color: "#00FF85" }} />
+                      {/* Flag avatar */}
+                      <div
+                        style={{
+                          width: 30,
+                          height: 30,
+                          borderRadius: "50%",
+                          background:
+                            "linear-gradient(180deg, #EF4444 0%, #EF4444 33%, #FFFFFF 33%, #FFFFFF 66%, #2563EB 66%, #2563EB 100%)",
+                          border: "1px solid rgba(255,255,255,0.15)",
+                          flexShrink: 0,
+                        }}
+                      />
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <div
+                          style={{
+                            fontSize: 12,
+                            fontWeight: 600,
+                            color: "#FFFFFF",
+                            letterSpacing: "-0.01em",
+                          }}
+                        >
+                          Нидерланды
+                        </div>
+                        <div
+                          style={{
+                            fontSize: 10,
+                            color: "rgba(255,255,255,0.5)",
+                            fontWeight: 500,
+                            marginTop: 1,
+                          }}
+                        >
+                          Амстердам · AMS-03
+                        </div>
                       </div>
-                      <span style={{
-                        fontSize: 13,
-                        fontWeight: 600,
-                        color: "rgba(255,255,255,0.92)",
-                        letterSpacing: "0.01em",
-                      }}>
-                        Отключить
-                      </span>
+                      <Icon
+                        name="ChevronRight"
+                        size={14}
+                        style={{ color: "rgba(255,255,255,0.4)", flexShrink: 0 }}
+                      />
                     </div>
 
-                    {/* Bottom info — "Ваш трафик защищён" */}
+                    {/* Stats row — Ping / Speed / Data */}
                     <div
                       style={{
                         position: "absolute",
-                        bottom: 26,
+                        bottom: 76,
+                        left: 14,
+                        right: 14,
+                        display: "grid",
+                        gridTemplateColumns: "1fr 1fr 1fr",
+                        gap: 6,
+                        zIndex: 4,
+                      }}
+                    >
+                      {[
+                        { label: "Ping", value: "12", unit: "ms" },
+                        { label: "Speed", value: "245", unit: "Mbps" },
+                        { label: "Time", value: "2:14", unit: "h" },
+                      ].map((s) => (
+                        <div
+                          key={s.label}
+                          style={{
+                            background: "rgba(255,255,255,0.03)",
+                            border: "1px solid rgba(255,255,255,0.06)",
+                            borderRadius: 10,
+                            padding: "7px 6px",
+                            textAlign: "center",
+                          }}
+                        >
+                          <div
+                            style={{
+                              fontSize: 9,
+                              color: "rgba(255,255,255,0.45)",
+                              fontWeight: 500,
+                              textTransform: "uppercase",
+                              letterSpacing: "0.06em",
+                              marginBottom: 2,
+                            }}
+                          >
+                            {s.label}
+                          </div>
+                          <div
+                            style={{
+                              fontSize: 13,
+                              fontWeight: 700,
+                              color: "#FFFFFF",
+                              letterSpacing: "-0.01em",
+                              lineHeight: 1,
+                            }}
+                          >
+                            {s.value}
+                            <span
+                              style={{
+                                fontSize: 8,
+                                color: "rgba(255,255,255,0.4)",
+                                fontWeight: 500,
+                                marginLeft: 2,
+                              }}
+                            >
+                              {s.unit}
+                            </span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Bottom secure indicator */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        bottom: 34,
                         left: 0,
                         right: 0,
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        gap: 6,
+                        gap: 5,
                         zIndex: 4,
                       }}
                     >
-                      <Icon name="CheckCircle2" size={11} style={{ color: "#00FF85" }} />
-                      <span style={{
-                        fontSize: 10,
-                        color: "rgba(255,255,255,0.55)",
-                        fontWeight: 500,
-                      }}>
+                      <Icon
+                        name="ShieldCheck"
+                        size={11}
+                        style={{ color: "#00FF85" }}
+                      />
+                      <span
+                        style={{
+                          fontSize: 10,
+                          color: "rgba(255,255,255,0.55)",
+                          fontWeight: 500,
+                          letterSpacing: "0.01em",
+                        }}
+                      >
                         Ваш трафик защищён
                       </span>
                     </div>
@@ -712,17 +913,10 @@ export default function Index() {
                       }}
                     />
 
-                    {/* Center: NZT pill capsule (focal point — minimal premium) */}
+                    {/* Center: NZT pill capsule — HIDDEN (replaced by VPN app UI) */}
                     <div
                       style={{
-                        position: "absolute",
-                        top: "40%",
-                        left: "50%",
-                        transform: "translate(-50%, -50%)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        zIndex: 4,
+                        display: "none",
                       }}
                     >
                       <div
