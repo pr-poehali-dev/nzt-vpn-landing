@@ -272,61 +272,40 @@ export default function Index() {
 
             {/* Right — iPhone Premium Hero (reference-style) */}
             <div className="flex justify-center items-center py-24 relative" data-hero-v2="true">
-              {/* Deep cinematic ambient — behind phone (reference dark green vignette) */}
+              {/* Calm ambient — soft green vignette */}
               <div
                 style={{
                   position: "absolute",
                   inset: -140,
                   background:
-                    "radial-gradient(ellipse 65% 55% at 55% 50%, rgba(0,255,133,0.20) 0%, rgba(0,90,55,0.10) 35%, rgba(0,0,0,0) 70%)",
-                  filter: "blur(50px)",
-                  pointerEvents: "none",
-                  zIndex: 0,
-                }}
-                className="glow-pulse"
-              />
-              {/* Bottom-right warm green spot (matches reference) */}
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "0%",
-                  right: "-10%",
-                  width: 340,
-                  height: 340,
-                  background:
-                    "radial-gradient(circle, rgba(0,255,133,0.22) 0%, transparent 65%)",
-                  filter: "blur(70px)",
-                  pointerEvents: "none",
-                  zIndex: 0,
-                }}
-              />
-              {/* Top-left subtle aura */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: "5%",
-                  left: "5%",
-                  width: 220,
-                  height: 220,
-                  background:
-                    "radial-gradient(circle, rgba(0,255,133,0.10) 0%, transparent 70%)",
+                    "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(0,255,133,0.14) 0%, rgba(0,90,55,0.06) 40%, rgba(0,0,0,0) 70%)",
                   filter: "blur(60px)",
                   pointerEvents: "none",
                   zIndex: 0,
                 }}
               />
+              {/* Bottom-right soft green spot */}
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "5%",
+                  right: "-5%",
+                  width: 300,
+                  height: 300,
+                  background:
+                    "radial-gradient(circle, rgba(0,255,133,0.12) 0%, transparent 70%)",
+                  filter: "blur(70px)",
+                  pointerEvents: "none",
+                  zIndex: 0,
+                }}
+              />
 
-              {/* Floating particles around phone */}
-              {[
-                { top: "12%", left: "8%", size: 4, dx: "30px", dy: "-50px", dur: "7s", delay: "0s" },
-                { top: "20%", right: "10%", size: 3, dx: "-20px", dy: "-40px", dur: "8s", delay: "1.2s" },
-                { top: "45%", left: "4%", size: 5, dx: "25px", dy: "30px", dur: "9s", delay: "2.4s" },
-                { top: "60%", right: "6%", size: 3, dx: "-30px", dy: "20px", dur: "7.5s", delay: "0.8s" },
-                { bottom: "18%", left: "12%", size: 4, dx: "20px", dy: "-30px", dur: "8.5s", delay: "3s" },
-                { bottom: "10%", right: "14%", size: 3, dx: "-25px", dy: "-40px", dur: "6.5s", delay: "1.8s" },
-                { top: "30%", left: "18%", size: 2, dx: "15px", dy: "25px", dur: "10s", delay: "4s" },
-                { top: "70%", right: "20%", size: 2, dx: "-15px", dy: "-25px", dur: "9.5s", delay: "2s" },
-              ].map((p, i) => (
+              {/* Minimal floating particles — calm premium feel */}
+              {([
+                { top: "22%", left: "8%", size: 3, dx: "15px", dy: "-30px", dur: "9s", delay: "0s" },
+                { top: "60%", right: "6%", size: 2, dx: "-12px", dy: "20px", dur: "10s", delay: "1.5s" },
+                { bottom: "20%", left: "14%", size: 2, dx: "10px", dy: "-20px", dur: "11s", delay: "3s" },
+              ] as Array<{ top?: string; bottom?: string; left?: string; right?: string; size: number; dx: string; dy: string; dur: string; delay: string }>).map((p, i) => (
                 <div
                   key={i}
                   className="particle"
@@ -432,7 +411,7 @@ export default function Index() {
                       }}
                     />
 
-                    {/* Layer: Abstract world / network map — dotted globe */}
+                    {/* Layer: Subtle dotted world map */}
                     <svg
                       viewBox="0 0 300 600"
                       preserveAspectRatio="xMidYMid slice"
@@ -441,7 +420,7 @@ export default function Index() {
                         inset: 0,
                         width: "100%",
                         height: "100%",
-                        opacity: 0.55,
+                        opacity: 0.40,
                         zIndex: 1,
                         pointerEvents: "none",
                       }}
@@ -462,19 +441,15 @@ export default function Index() {
                       {/* Glow base for map */}
                       <circle cx="150" cy="260" r="170" fill="url(#mapGlow)" />
 
-                      {/* Dotted globe lat/long arcs — abstract sphere */}
+                      {/* Subtle horizontal latitude lines only */}
                       <g
                         fill="none"
-                        stroke="rgba(0,255,133,0.28)"
-                        strokeWidth="0.8"
-                        strokeDasharray="1.6 3"
+                        stroke="rgba(0,255,133,0.15)"
+                        strokeWidth="0.6"
+                        strokeDasharray="1.5 4"
                       >
-                        <ellipse cx="150" cy="260" rx="120" ry="120" />
-                        <ellipse cx="150" cy="260" rx="120" ry="50" />
-                        <ellipse cx="150" cy="260" rx="120" ry="90" />
-                        <ellipse cx="150" cy="260" rx="80" ry="120" />
-                        <ellipse cx="150" cy="260" rx="40" ry="120" />
-                        <ellipse cx="150" cy="260" rx="120" ry="20" />
+                        <ellipse cx="150" cy="260" rx="115" ry="50" />
+                        <ellipse cx="150" cy="260" rx="115" ry="90" />
                       </g>
 
                       {/* Dot-cluster continents (abstract) */}
@@ -507,14 +482,11 @@ export default function Index() {
                         <circle className="net-node" cx="150" cy="195" fill="#7CFFB2" style={{ animationDelay: "1.5s" }} />
                       </g>
 
-                      {/* Dynamic connection lines — curved arcs between nodes */}
-                      <g fill="none" stroke="url(#connGrad)" strokeWidth="1.2" strokeLinecap="round">
+                      {/* Thin minimal connection lines */}
+                      <g fill="none" stroke="url(#connGrad)" strokeWidth="0.9" strokeLinecap="round">
                         <path className="conn-line" d="M 78 230 Q 130 170 200 240" />
-                        <path className="conn-line" d="M 200 240 Q 220 290 215 305" style={{ animationDelay: "0.8s" }} />
                         <path className="conn-line" d="M 130 280 Q 100 250 78 230" style={{ animationDelay: "1.6s" }} />
-                        <path className="conn-line" d="M 90 310 Q 110 290 130 280" style={{ animationDelay: "2.2s" }} />
-                        <path className="conn-line" d="M 150 195 Q 175 215 200 240" style={{ animationDelay: "0.4s" }} />
-                        <path className="conn-line" d="M 150 195 Q 110 210 78 230" style={{ animationDelay: "1.2s" }} />
+                        <path className="conn-line" d="M 150 195 Q 175 215 200 240" style={{ animationDelay: "0.8s" }} />
                       </g>
                     </svg>
 
@@ -542,7 +514,7 @@ export default function Index() {
                       </div>
                     </div>
 
-                    {/* Header row — menu / Connected / info */}
+                    {/* Header row — menu / NZT VPN / sliders */}
                     <div
                       style={{
                         position: "absolute",
@@ -557,101 +529,172 @@ export default function Index() {
                     >
                       <div style={{
                         width: 30, height: 30, borderRadius: 8,
-                        background: "rgba(255,255,255,0.06)",
+                        background: "rgba(255,255,255,0.05)",
                         border: "1px solid rgba(255,255,255,0.08)",
                         display: "flex", alignItems: "center", justifyContent: "center",
                       }}>
                         <Icon name="Menu" size={14} style={{ color: "rgba(255,255,255,0.85)" }} />
                       </div>
-                      <div style={{
-                        display: "flex", alignItems: "center", gap: 6,
-                        padding: "5px 10px",
-                        background: "rgba(0,255,133,0.10)",
-                        border: "1px solid rgba(0,255,133,0.30)",
-                        borderRadius: 999,
+                      <span style={{
+                        fontSize: 13,
+                        fontWeight: 700,
+                        color: "#FFFFFF",
+                        letterSpacing: "0.02em",
                       }}>
-                        <div style={{
-                          width: 6, height: 6, borderRadius: "50%",
-                          background: "#00FF85",
-                          boxShadow: "0 0 6px #00FF85",
-                        }} />
-                        <span style={{ fontSize: 10, fontWeight: 600, color: "#FFFFFF", letterSpacing: "0.02em" }}>
-                          Connected
-                        </span>
-                      </div>
+                        NZT VPN
+                      </span>
                       <div style={{
-                        width: 30, height: 30, borderRadius: "50%",
-                        background: "rgba(255,255,255,0.06)",
+                        width: 30, height: 30, borderRadius: 8,
+                        background: "rgba(255,255,255,0.05)",
                         border: "1px solid rgba(255,255,255,0.08)",
                         display: "flex", alignItems: "center", justifyContent: "center",
                       }}>
-                        <Icon name="Info" size={13} style={{ color: "rgba(255,255,255,0.85)" }} />
+                        <Icon name="SlidersHorizontal" size={13} style={{ color: "rgba(255,255,255,0.85)" }} />
                       </div>
                     </div>
 
-                    {/* Bottom button inside screen — "Connected" pill */}
+                    {/* Status text — "Подключено" + city + speed */}
                     <div
                       style={{
                         position: "absolute",
-                        bottom: 28,
-                        left: 18,
-                        right: 18,
-                        background: "rgba(255,255,255,0.05)",
-                        border: "1px solid rgba(255,255,255,0.08)",
-                        borderRadius: 16,
-                        padding: "12px 0",
+                        bottom: 116,
+                        left: 0,
+                        right: 0,
                         textAlign: "center",
-                        backdropFilter: "blur(14px)",
-                        WebkitBackdropFilter: "blur(14px)",
-                        fontSize: 12,
-                        color: "rgba(255,255,255,0.92)",
-                        fontWeight: 600,
-                        letterSpacing: "0.02em",
                         zIndex: 4,
                       }}
                     >
-                      Connected
+                      <div style={{
+                        fontSize: 17,
+                        fontWeight: 700,
+                        color: "#FFFFFF",
+                        letterSpacing: "-0.01em",
+                        marginBottom: 4,
+                      }}>
+                        Подключено
+                      </div>
+                      <div style={{
+                        fontSize: 11,
+                        color: "rgba(255,255,255,0.55)",
+                        fontWeight: 500,
+                        letterSpacing: "0.02em",
+                      }}>
+                        Амстердам · 245 Mbps
+                      </div>
                     </div>
 
-                    {/* Home indicator bar */}
+                    {/* Bottom button — "Отключить" with lock icon */}
                     <div
                       style={{
                         position: "absolute",
-                        bottom: 8,
+                        bottom: 58,
+                        left: 16,
+                        right: 16,
+                        background: "rgba(255,255,255,0.04)",
+                        border: "1px solid rgba(255,255,255,0.08)",
+                        borderRadius: 16,
+                        padding: "11px 14px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: 10,
+                        backdropFilter: "blur(14px)",
+                        WebkitBackdropFilter: "blur(14px)",
+                        zIndex: 4,
+                      }}
+                    >
+                      <div style={{
+                        width: 22,
+                        height: 22,
+                        borderRadius: "50%",
+                        background: "rgba(0,255,133,0.12)",
+                        border: "1px solid rgba(0,255,133,0.30)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}>
+                        <Icon name="Lock" size={11} style={{ color: "#00FF85" }} />
+                      </div>
+                      <span style={{
+                        fontSize: 13,
+                        fontWeight: 600,
+                        color: "rgba(255,255,255,0.92)",
+                        letterSpacing: "0.01em",
+                      }}>
+                        Отключить
+                      </span>
+                    </div>
+
+                    {/* Bottom info — "Ваш трафик защищён" */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        bottom: 26,
+                        left: 0,
+                        right: 0,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: 6,
+                        zIndex: 4,
+                      }}
+                    >
+                      <Icon name="CheckCircle2" size={11} style={{ color: "#00FF85" }} />
+                      <span style={{
+                        fontSize: 10,
+                        color: "rgba(255,255,255,0.55)",
+                        fontWeight: 500,
+                      }}>
+                        Ваш трафик защищён
+                      </span>
+                    </div>
+
+                    {/* Home indicator bar (subtle) */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        bottom: 6,
                         left: "50%",
                         transform: "translateX(-50%)",
                         width: 90,
-                        height: 4,
-                        background: "rgba(255,255,255,0.6)",
+                        height: 3,
+                        background: "rgba(255,255,255,0.35)",
                         borderRadius: 4,
                         zIndex: 5,
                       }}
                     />
 
-                    {/* Center: hidden — moved to floating shield overlay outside screen */}
+                    {/* Center: NZT pill capsule (focal point — minimal premium) */}
                     <div
                       style={{
-                        display: "none",
+                        position: "absolute",
+                        top: "40%",
+                        left: "50%",
+                        transform: "translate(-50%, -50%)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        zIndex: 4,
                       }}
                     >
                       <div
                         style={{
                           position: "relative",
-                          width: 130,
-                          height: 175,
+                          width: 120,
+                          height: 165,
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
                         }}
                       >
-                        {/* Outer halo glow — wider, more cinematic */}
+                        {/* Outer halo glow — calmer minimal */}
                         <div
                           style={{
                             position: "absolute",
-                            inset: -70,
+                            inset: -50,
                             background:
-                              "radial-gradient(circle, rgba(0,255,133,0.7) 0%, rgba(0,255,133,0.22) 40%, transparent 75%)",
-                            filter: "blur(34px)",
+                              "radial-gradient(circle, rgba(0,255,133,0.55) 0%, rgba(0,255,133,0.15) 45%, transparent 75%)",
+                            filter: "blur(28px)",
                             borderRadius: "50%",
                           }}
                           className="glow-pulse"
@@ -659,36 +702,20 @@ export default function Index() {
                         <div
                           style={{
                             position: "absolute",
-                            inset: -28,
+                            inset: -22,
                             background:
-                              "radial-gradient(circle, rgba(124,255,178,0.45) 0%, transparent 65%)",
-                            filter: "blur(16px)",
+                              "radial-gradient(circle, rgba(124,255,178,0.35) 0%, transparent 65%)",
+                            filter: "blur(14px)",
                             borderRadius: "50%",
                           }}
                         />
 
-                        {/* Glassmorphism plate behind logo */}
-                        <div
-                          style={{
-                            position: "absolute",
-                            width: 150,
-                            height: 195,
-                            borderRadius: 38,
-                            background:
-                              "linear-gradient(145deg, rgba(255,255,255,0.10) 0%, rgba(0,255,133,0.04) 50%, rgba(255,255,255,0.02) 100%)",
-                            border: "1px solid rgba(0,255,133,0.18)",
-                            backdropFilter: "blur(16px)",
-                            WebkitBackdropFilter: "blur(16px)",
-                            boxShadow:
-                              "0 0 40px rgba(0,255,133,0.15), inset 0 1px 0 rgba(255,255,255,0.12)",
-                            zIndex: 0,
-                          }}
-                        />
+
 
                         {/* 3D Glass NZT pill — elongated vertical capsule */}
                         <svg
-                          width="108"
-                          height="190"
+                          width="96"
+                          height="170"
                           viewBox="0 0 90 180"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
@@ -894,27 +921,6 @@ export default function Index() {
                           />
                         </svg>
                       </div>
-                      <div
-                        style={{
-                          fontSize: 22,
-                          fontWeight: 600,
-                          color: "#FFFFFF",
-                          letterSpacing: "-0.02em",
-                          textShadow: "0 0 20px rgba(0,255,133,0.3)",
-                        }}
-                      >
-                        Подключено
-                      </div>
-                      <div
-                        style={{
-                          fontSize: 11,
-                          color: "rgba(255,255,255,0.45)",
-                          fontWeight: 500,
-                          letterSpacing: "0.04em",
-                        }}
-                      >
-                        Амстердам · 245 Mbps
-                      </div>
                     </div>
 
                     {/* Bottom button — hidden, replaced by Connected pill above */}
@@ -922,44 +928,14 @@ export default function Index() {
                   </div>
                 </div>
 
-                {/* === FLOATING GLASS SHIELD + BOLT (over the phone, like reference) === */}
-                <div
-                  className="shield-float"
-                  style={{
-                    position: "absolute",
-                    top: "48%",
-                    left: "32%",
-                    width: 170,
-                    height: 200,
-                    zIndex: 5,
-                    pointerEvents: "none",
-                  }}
-                >
-                  {/* Shield halo */}
-                  <div
-                    style={{
-                      position: "absolute",
-                      inset: -50,
-                      background:
-                        "radial-gradient(circle, rgba(0,255,133,0.55) 0%, rgba(0,255,133,0.18) 45%, transparent 75%)",
-                      filter: "blur(30px)",
-                      borderRadius: "50%",
-                    }}
-                    className="glow-pulse"
-                  />
-
+                {/* === FLOATING GLASS SHIELD (REMOVED — minimal premium style) === */}
+                <div style={{ display: "none" }}>
                   <svg
                     viewBox="0 0 170 200"
                     width="170"
                     height="200"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    style={{
-                      filter:
-                        "drop-shadow(0 0 24px rgba(0,255,133,0.9)) drop-shadow(0 20px 40px rgba(0,255,133,0.45))",
-                      position: "relative",
-                      zIndex: 2,
-                    }}
                   >
                     <defs>
                       <linearGradient
@@ -1077,124 +1053,40 @@ export default function Index() {
                   </svg>
                 </div>
 
-                {/* === ENERGY ORBITAL RINGS — elliptical, tilted, around phone === */}
-                <div
+                {/* Subtle calm orbital ellipses behind the phone */}
+                <svg
+                  viewBox="0 0 700 400"
                   style={{
                     position: "absolute",
-                    top: "65%",
+                    top: "55%",
                     left: "50%",
-                    width: 460,
-                    height: 460,
+                    transform: "translate(-50%, -50%)",
+                    width: 700,
+                    height: 400,
                     pointerEvents: "none",
-                    zIndex: 4,
-                    transformStyle: "preserve-3d",
+                    zIndex: 0,
+                    opacity: 0.55,
                   }}
                 >
-                  <div
-                    className="energy-orbit-1"
-                    style={{
-                      position: "absolute",
-                      top: "50%",
-                      left: "50%",
-                      width: 460,
-                      height: 460,
-                      borderRadius: "50%",
-                      border: "2px solid rgba(0,255,133,0.55)",
-                      boxShadow:
-                        "0 0 24px rgba(0,255,133,0.55), inset 0 0 24px rgba(0,255,133,0.35)",
-                    }}
+                  <ellipse
+                    cx="350"
+                    cy="200"
+                    rx="320"
+                    ry="70"
+                    fill="none"
+                    stroke="rgba(0,255,133,0.30)"
+                    strokeWidth="1"
                   />
-                  <div
-                    className="energy-orbit-2"
-                    style={{
-                      position: "absolute",
-                      top: "50%",
-                      left: "50%",
-                      width: 380,
-                      height: 380,
-                      borderRadius: "50%",
-                      border: "1.5px solid rgba(0,255,133,0.45)",
-                      boxShadow:
-                        "0 0 18px rgba(0,255,133,0.45), inset 0 0 18px rgba(0,255,133,0.25)",
-                    }}
+                  <ellipse
+                    cx="350"
+                    cy="200"
+                    rx="260"
+                    ry="56"
+                    fill="none"
+                    stroke="rgba(0,255,133,0.18)"
+                    strokeWidth="1"
                   />
-                  <div
-                    className="energy-orbit-3"
-                    style={{
-                      position: "absolute",
-                      top: "50%",
-                      left: "50%",
-                      width: 540,
-                      height: 540,
-                      borderRadius: "50%",
-                      border: "1px solid rgba(0,255,133,0.30)",
-                      boxShadow: "0 0 14px rgba(0,255,133,0.35)",
-                    }}
-                  />
-                </div>
-
-                {/* Mini orbit nodes (WiFi + share badges) */}
-                <div
-                  style={{
-                    position: "absolute",
-                    bottom: "18%",
-                    left: "10%",
-                    width: 36,
-                    height: 36,
-                    borderRadius: "50%",
-                    background:
-                      "linear-gradient(145deg, rgba(0,255,133,0.20), rgba(0,255,133,0.05))",
-                    border: "1px solid rgba(0,255,133,0.50)",
-                    backdropFilter: "blur(10px)",
-                    WebkitBackdropFilter: "blur(10px)",
-                    boxShadow:
-                      "0 0 16px rgba(0,255,133,0.45), inset 0 1px 0 rgba(255,255,255,0.18)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    zIndex: 6,
-                  }}
-                >
-                  <Icon name="Wifi" size={16} style={{ color: "#00FF85" }} />
-                </div>
-                <div
-                  style={{
-                    position: "absolute",
-                    bottom: "30%",
-                    right: "2%",
-                    width: 38,
-                    height: 38,
-                    borderRadius: "50%",
-                    background:
-                      "linear-gradient(145deg, rgba(0,255,133,0.20), rgba(0,255,133,0.05))",
-                    border: "1px solid rgba(0,255,133,0.50)",
-                    backdropFilter: "blur(10px)",
-                    WebkitBackdropFilter: "blur(10px)",
-                    boxShadow:
-                      "0 0 16px rgba(0,255,133,0.45), inset 0 1px 0 rgba(255,255,255,0.18)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    zIndex: 6,
-                  }}
-                >
-                  <Icon name="Share2" size={16} style={{ color: "#00FF85" }} />
-                </div>
-
-                {/* Small floating dot */}
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "20%",
-                    right: "-8%",
-                    width: 6,
-                    height: 6,
-                    borderRadius: "50%",
-                    background: "#00FF85",
-                    boxShadow: "0 0 10px #00FF85, 0 0 20px rgba(0,255,133,0.6)",
-                    zIndex: 6,
-                  }}
-                />
+                </svg>
               </div>
             </div>
           </div>

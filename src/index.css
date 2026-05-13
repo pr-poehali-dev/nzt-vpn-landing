@@ -502,7 +502,7 @@
   }
 
   .phone-tilt {
-    transform: rotateY(-10deg) rotateX(2deg);
+    transform: rotateY(-8deg) rotateZ(2deg);
     transform-origin: center center;
   }
 
