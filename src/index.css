@@ -496,4 +496,54 @@
     animation: node-pulse 2.4s ease-in-out infinite;
     transform-origin: center;
   }
+
+  .phone-perspective {
+    perspective: 1400px;
+  }
+
+  .phone-tilt {
+    transform: rotateY(-10deg) rotateX(2deg);
+    transform-origin: center center;
+  }
+
+  @keyframes orbit-tilt-1 {
+    from {
+      transform: translate(-50%, -50%) rotateX(70deg) rotateZ(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotateX(70deg) rotateZ(360deg);
+    }
+  }
+  @keyframes orbit-tilt-2 {
+    from {
+      transform: translate(-50%, -50%) rotateX(70deg) rotateZ(360deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotateX(70deg) rotateZ(0deg);
+    }
+  }
+
+  .energy-orbit-1 {
+    animation: orbit-tilt-1 18s linear infinite;
+  }
+  .energy-orbit-2 {
+    animation: orbit-tilt-2 24s linear infinite;
+  }
+  .energy-orbit-3 {
+    animation: orbit-tilt-1 30s linear infinite;
+  }
+
+  @keyframes shield-float {
+    0%,
+    100% {
+      transform: translate(-50%, -50%) translateZ(0) rotateY(-8deg);
+    }
+    50% {
+      transform: translate(-50%, -52%) translateZ(0) rotateY(-8deg);
+    }
+  }
+
+  .shield-float {
+    animation: shield-float 4s ease-in-out infinite;
+  }
 }

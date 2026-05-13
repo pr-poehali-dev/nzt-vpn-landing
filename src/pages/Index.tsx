@@ -270,45 +270,46 @@ export default function Index() {
               </div>
             </div>
 
-            {/* Right — iPhone CSS Mockup */}
-            <div className="flex justify-center items-center py-20 relative">
-              {/* Deep cinematic ambient — behind phone */}
+            {/* Right — iPhone Premium Hero (reference-style) */}
+            <div className="flex justify-center items-center py-24 relative" data-hero-v2="true">
+              {/* Deep cinematic ambient — behind phone (reference dark green vignette) */}
               <div
                 style={{
                   position: "absolute",
-                  inset: -120,
+                  inset: -140,
                   background:
-                    "radial-gradient(circle at 50% 45%, rgba(0,255,133,0.16) 0%, rgba(2,80,52,0.10) 28%, rgba(0,0,0,0) 65%)",
-                  filter: "blur(40px)",
+                    "radial-gradient(ellipse 65% 55% at 55% 50%, rgba(0,255,133,0.20) 0%, rgba(0,90,55,0.10) 35%, rgba(0,0,0,0) 70%)",
+                  filter: "blur(50px)",
                   pointerEvents: "none",
                   zIndex: 0,
                 }}
                 className="glow-pulse"
               />
-              {/* Secondary teal aura */}
+              {/* Bottom-right warm green spot (matches reference) */}
               <div
                 style={{
                   position: "absolute",
-                  top: "10%",
-                  left: "15%",
-                  width: 240,
-                  height: 240,
+                  bottom: "0%",
+                  right: "-10%",
+                  width: 340,
+                  height: 340,
                   background:
-                    "radial-gradient(circle, rgba(0,255,133,0.18) 0%, transparent 70%)",
-                  filter: "blur(50px)",
+                    "radial-gradient(circle, rgba(0,255,133,0.22) 0%, transparent 65%)",
+                  filter: "blur(70px)",
                   pointerEvents: "none",
                   zIndex: 0,
                 }}
               />
+              {/* Top-left subtle aura */}
               <div
                 style={{
                   position: "absolute",
-                  bottom: "8%",
-                  right: "12%",
-                  width: 260,
-                  height: 260,
+                  top: "5%",
+                  left: "5%",
+                  width: 220,
+                  height: 220,
                   background:
-                    "radial-gradient(circle, rgba(30,215,96,0.14) 0%, transparent 70%)",
+                    "radial-gradient(circle, rgba(0,255,133,0.10) 0%, transparent 70%)",
                   filter: "blur(60px)",
                   pointerEvents: "none",
                   zIndex: 0,
@@ -346,41 +347,59 @@ export default function Index() {
               ))}
 
               <div
-                className="float-anim relative"
-                style={{ width: 340, zIndex: 2 }}
+                className="float-anim relative phone-perspective"
+                style={{ width: 360, zIndex: 2 }}
               >
                 {/* Ambient glow */}
                 <div
                   style={{
                     position: "absolute",
-                    inset: -80,
+                    inset: -90,
                     background:
-                      "radial-gradient(circle, rgba(0,255,133,0.18) 0%, transparent 70%)",
+                      "radial-gradient(circle, rgba(0,255,133,0.22) 0%, transparent 70%)",
                     borderRadius: "50%",
-                    filter: "blur(30px)",
+                    filter: "blur(34px)",
                   }}
                   className="glow-pulse"
                 />
 
-                {/* Phone frame */}
+                {/* Phone frame — metallic, with subtle perspective */}
                 <div
+                  className="phone-tilt"
                   style={{
                     position: "relative",
                     width: "100%",
                     aspectRatio: "9 / 19",
                     background:
-                      "linear-gradient(145deg, #2a2a2a 0%, #0a0a0a 50%, #1a1a1a 100%)",
-                    borderRadius: 44,
-                    padding: 10,
+                      "linear-gradient(145deg, #3a3a3a 0%, #1a1a1a 25%, #0a0a0a 50%, #1f1f1f 75%, #2a2a2a 100%)",
+                    borderRadius: 48,
+                    padding: 8,
                     boxShadow: `
-                    0 40px 80px rgba(0,0,0,0.7),
-                    0 0 0 1.5px rgba(255,255,255,0.08),
-                    inset 0 0 0 1px rgba(255,255,255,0.04),
-                    0 0 60px rgba(0,255,133,0.15)
+                    0 50px 100px rgba(0,0,0,0.8),
+                    0 0 0 2px rgba(255,255,255,0.06),
+                    inset 0 0 0 1px rgba(255,255,255,0.08),
+                    inset 2px 0 4px rgba(255,255,255,0.06),
+                    inset -2px 0 4px rgba(0,0,0,0.4),
+                    0 0 90px rgba(0,255,133,0.22)
                   `,
                     zIndex: 1,
                   }}
                 >
+                  {/* Side rim highlight — metallic edge */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "8%",
+                      left: -2,
+                      width: 3,
+                      height: "30%",
+                      background:
+                        "linear-gradient(180deg, transparent, rgba(255,255,255,0.4), transparent)",
+                      borderRadius: 4,
+                      pointerEvents: "none",
+                      zIndex: 6,
+                    }}
+                  />
                   {/* Screen */}
                   <div
                     style={{
@@ -388,14 +407,14 @@ export default function Index() {
                       width: "100%",
                       height: "100%",
                       background:
-                        "radial-gradient(ellipse at 50% 38%, #0e4a30 0%, #062a1c 35%, #020c08 70%, #000000 100%)",
-                      borderRadius: 36,
+                        "radial-gradient(ellipse at 50% 38%, #082a1c 0%, #04130d 40%, #010604 75%, #000000 100%)",
+                      borderRadius: 40,
                       overflow: "hidden",
                       display: "flex",
                       flexDirection: "column",
-                      alignItems: "center",
+                      alignItems: "stretch",
                       justifyContent: "space-between",
-                      padding: "44px 24px 28px",
+                      padding: "0",
                     }}
                   >
                     {/* Notch */}
@@ -499,124 +518,120 @@ export default function Index() {
                       </g>
                     </svg>
 
-                    {/* Orbital rings around logo */}
+                    {/* Status bar — top of phone (9:41 + WiFi/5G) */}
                     <div
-                      className="orbit-ring"
                       style={{
                         position: "absolute",
-                        top: "44%",
-                        left: "50%",
-                        width: 200,
-                        height: 200,
-                        marginLeft: -100,
-                        marginTop: -100,
-                        borderRadius: "50%",
-                        border: "1px dashed rgba(0,255,133,0.22)",
-                        pointerEvents: "none",
-                        zIndex: 1,
-                      }}
-                    />
-                    <div
-                      className="orbit-ring-reverse"
-                      style={{
-                        position: "absolute",
-                        top: "44%",
-                        left: "50%",
-                        width: 240,
-                        height: 240,
-                        marginLeft: -120,
-                        marginTop: -120,
-                        borderRadius: "50%",
-                        border: "1px solid rgba(0,255,133,0.12)",
-                        pointerEvents: "none",
-                        zIndex: 1,
-                      }}
-                    />
-
-                    {/* Cinematic scan line */}
-                    <div
-                      className="scan-line"
-                      style={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        height: 80,
-                        background:
-                          "linear-gradient(180deg, transparent 0%, rgba(0,255,133,0.10) 50%, transparent 100%)",
-                        pointerEvents: "none",
-                        zIndex: 2,
-                      }}
-                    />
-
-                    {/* Soft signal waves — animated radial pulses */}
-                    <div
-                      className="signal-wave"
-                      style={{
-                        position: "absolute",
-                        top: "44%",
-                        left: "50%",
-                        width: 140,
-                        height: 140,
-                        borderRadius: "50%",
-                        border: "1px solid rgba(0,255,133,0.35)",
-                        pointerEvents: "none",
-                      }}
-                    />
-                    <div
-                      className="signal-wave"
-                      style={{
-                        position: "absolute",
-                        top: "44%",
-                        left: "50%",
-                        width: 140,
-                        height: 140,
-                        borderRadius: "50%",
-                        border: "1px solid rgba(0,255,133,0.25)",
-                        pointerEvents: "none",
-                        animationDelay: "1.2s",
-                      }}
-                    />
-                    <div
-                      className="signal-wave"
-                      style={{
-                        position: "absolute",
-                        top: "44%",
-                        left: "50%",
-                        width: 140,
-                        height: 140,
-                        borderRadius: "50%",
-                        border: "1px solid rgba(0,255,133,0.18)",
-                        pointerEvents: "none",
-                        animationDelay: "2.4s",
-                      }}
-                    />
-
-                    {/* Top wordmark */}
-                    <div
-                      style={{
-                        fontSize: 10,
-                        color: "rgba(255,255,255,0.5)",
+                        top: 14,
+                        left: 22,
+                        right: 22,
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        fontSize: 11,
                         fontWeight: 600,
-                        letterSpacing: "0.22em",
-                        textTransform: "uppercase",
-                        marginTop: 8,
-                        position: "relative",
-                        zIndex: 2,
+                        color: "#FFFFFF",
+                        zIndex: 6,
                       }}
                     >
-                      NZT VPN
+                      <span>9:41</span>
+                      <div style={{ display: "flex", gap: 5, alignItems: "center" }}>
+                        <Icon name="Signal" size={11} style={{ color: "#fff" }} />
+                        <Icon name="Wifi" size={11} style={{ color: "#fff" }} />
+                        <span style={{ fontSize: 9, fontWeight: 700, padding: "1px 4px", border: "1px solid rgba(255,255,255,0.4)", borderRadius: 3 }}>5G</span>
+                      </div>
                     </div>
 
-                    {/* Center: logo + Подключено */}
+                    {/* Header row — menu / Connected / info */}
                     <div
                       style={{
+                        position: "absolute",
+                        top: 44,
+                        left: 18,
+                        right: 18,
                         display: "flex",
-                        flexDirection: "column",
+                        justifyContent: "space-between",
                         alignItems: "center",
-                        gap: 18,
-                        position: "relative",
-                        zIndex: 2,
+                        zIndex: 4,
+                      }}
+                    >
+                      <div style={{
+                        width: 30, height: 30, borderRadius: 8,
+                        background: "rgba(255,255,255,0.06)",
+                        border: "1px solid rgba(255,255,255,0.08)",
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                      }}>
+                        <Icon name="Menu" size={14} style={{ color: "rgba(255,255,255,0.85)" }} />
+                      </div>
+                      <div style={{
+                        display: "flex", alignItems: "center", gap: 6,
+                        padding: "5px 10px",
+                        background: "rgba(0,255,133,0.10)",
+                        border: "1px solid rgba(0,255,133,0.30)",
+                        borderRadius: 999,
+                      }}>
+                        <div style={{
+                          width: 6, height: 6, borderRadius: "50%",
+                          background: "#00FF85",
+                          boxShadow: "0 0 6px #00FF85",
+                        }} />
+                        <span style={{ fontSize: 10, fontWeight: 600, color: "#FFFFFF", letterSpacing: "0.02em" }}>
+                          Connected
+                        </span>
+                      </div>
+                      <div style={{
+                        width: 30, height: 30, borderRadius: "50%",
+                        background: "rgba(255,255,255,0.06)",
+                        border: "1px solid rgba(255,255,255,0.08)",
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                      }}>
+                        <Icon name="Info" size={13} style={{ color: "rgba(255,255,255,0.85)" }} />
+                      </div>
+                    </div>
+
+                    {/* Bottom button inside screen — "Connected" pill */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        bottom: 28,
+                        left: 18,
+                        right: 18,
+                        background: "rgba(255,255,255,0.05)",
+                        border: "1px solid rgba(255,255,255,0.08)",
+                        borderRadius: 16,
+                        padding: "12px 0",
+                        textAlign: "center",
+                        backdropFilter: "blur(14px)",
+                        WebkitBackdropFilter: "blur(14px)",
+                        fontSize: 12,
+                        color: "rgba(255,255,255,0.92)",
+                        fontWeight: 600,
+                        letterSpacing: "0.02em",
+                        zIndex: 4,
+                      }}
+                    >
+                      Connected
+                    </div>
+
+                    {/* Home indicator bar */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        bottom: 8,
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        width: 90,
+                        height: 4,
+                        background: "rgba(255,255,255,0.6)",
+                        borderRadius: 4,
+                        zIndex: 5,
+                      }}
+                    />
+
+                    {/* Center: hidden — moved to floating shield overlay outside screen */}
+                    <div
+                      style={{
+                        display: "none",
                       }}
                     >
                       <div
@@ -902,28 +917,284 @@ export default function Index() {
                       </div>
                     </div>
 
-                    {/* Bottom button */}
-                    <div
-                      style={{
-                        width: "100%",
-                        background: "rgba(255,255,255,0.06)",
-                        border: "1px solid rgba(255,255,255,0.1)",
-                        borderRadius: 14,
-                        padding: "14px 0",
-                        textAlign: "center",
-                        backdropFilter: "blur(12px)",
-                        fontSize: 13,
-                        color: "rgba(255,255,255,0.85)",
-                        fontWeight: 600,
-                        letterSpacing: "0.01em",
-                        position: "relative",
-                        zIndex: 2,
-                      }}
-                    >
-                      Отключить
-                    </div>
+                    {/* Bottom button — hidden, replaced by Connected pill above */}
+                    <div style={{ display: "none" }}>Отключить</div>
                   </div>
                 </div>
+
+                {/* === FLOATING GLASS SHIELD + BOLT (over the phone, like reference) === */}
+                <div
+                  className="shield-float"
+                  style={{
+                    position: "absolute",
+                    top: "48%",
+                    left: "32%",
+                    width: 170,
+                    height: 200,
+                    zIndex: 5,
+                    pointerEvents: "none",
+                  }}
+                >
+                  {/* Shield halo */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      inset: -50,
+                      background:
+                        "radial-gradient(circle, rgba(0,255,133,0.55) 0%, rgba(0,255,133,0.18) 45%, transparent 75%)",
+                      filter: "blur(30px)",
+                      borderRadius: "50%",
+                    }}
+                    className="glow-pulse"
+                  />
+
+                  <svg
+                    viewBox="0 0 170 200"
+                    width="170"
+                    height="200"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style={{
+                      filter:
+                        "drop-shadow(0 0 24px rgba(0,255,133,0.9)) drop-shadow(0 20px 40px rgba(0,255,133,0.45))",
+                      position: "relative",
+                      zIndex: 2,
+                    }}
+                  >
+                    <defs>
+                      <linearGradient
+                        id="shieldGlass"
+                        x1="0"
+                        y1="0"
+                        x2="170"
+                        y2="200"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop offset="0%" stopColor="#A8FFCF" stopOpacity="0.75" />
+                        <stop offset="50%" stopColor="#00FF88" stopOpacity="0.45" />
+                        <stop offset="100%" stopColor="#005A2E" stopOpacity="0.7" />
+                      </linearGradient>
+                      <linearGradient
+                        id="shieldEdge"
+                        x1="85"
+                        y1="0"
+                        x2="85"
+                        y2="200"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop offset="0%" stopColor="#D4FFE5" />
+                        <stop offset="50%" stopColor="#00FF88" />
+                        <stop offset="100%" stopColor="#1ED760" />
+                      </linearGradient>
+                      <radialGradient id="shieldCore" cx="50%" cy="40%" r="60%">
+                        <stop offset="0%" stopColor="#C0FFDB" stopOpacity="0.85" />
+                        <stop offset="60%" stopColor="#00FF88" stopOpacity="0.4" />
+                        <stop offset="100%" stopColor="#003A1F" stopOpacity="0.5" />
+                      </radialGradient>
+                      <linearGradient
+                        id="shieldBolt"
+                        x1="0"
+                        y1="40"
+                        x2="0"
+                        y2="170"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop offset="0%" stopColor="#FFFFFF" />
+                        <stop offset="45%" stopColor="#A8FFCF" />
+                        <stop offset="100%" stopColor="#00FF88" />
+                      </linearGradient>
+                      <linearGradient
+                        id="shieldGloss"
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="80"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.75" />
+                        <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
+                      </linearGradient>
+                    </defs>
+
+                    {/* Shield path (rounded heraldic shield) */}
+                    <path
+                      d="M85 10 C 50 18, 25 28, 15 38 L 15 95 C 15 145, 50 180, 85 192 C 120 180, 155 145, 155 95 L 155 38 C 145 28, 120 18, 85 10 Z"
+                      fill="url(#shieldCore)"
+                      opacity="0.7"
+                    />
+                    <path
+                      d="M85 10 C 50 18, 25 28, 15 38 L 15 95 C 15 145, 50 180, 85 192 C 120 180, 155 145, 155 95 L 155 38 C 145 28, 120 18, 85 10 Z"
+                      fill="url(#shieldGlass)"
+                      opacity="0.55"
+                    />
+                    {/* Outer crystal edge */}
+                    <path
+                      d="M85 10 C 50 18, 25 28, 15 38 L 15 95 C 15 145, 50 180, 85 192 C 120 180, 155 145, 155 95 L 155 38 C 145 28, 120 18, 85 10 Z"
+                      fill="none"
+                      stroke="url(#shieldEdge)"
+                      strokeWidth="2.8"
+                    />
+                    {/* Inner thin edge */}
+                    <path
+                      d="M85 18 C 55 25, 32 34, 22 42 L 22 92 C 22 138, 53 170, 85 182 C 117 170, 148 138, 148 92 L 148 42 C 138 34, 115 25, 85 18 Z"
+                      fill="none"
+                      stroke="rgba(168,255,207,0.45)"
+                      strokeWidth="1"
+                    />
+                    {/* Top glossy reflection */}
+                    <path
+                      d="M 30 30 Q 85 16 140 30 Q 150 50 140 70 Q 85 56 30 70 Q 20 50 30 30 Z"
+                      fill="url(#shieldGloss)"
+                      opacity="0.55"
+                    />
+                    {/* Side rim light */}
+                    <path
+                      d="M 18 60 Q 16 100 22 145"
+                      stroke="rgba(168,255,207,0.55)"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                      fill="none"
+                    />
+                    {/* Lightning bolt */}
+                    <path
+                      d="M95 42 L60 110 L80 110 L70 168 L110 92 L88 92 L100 42 Z"
+                      fill="url(#shieldBolt)"
+                    />
+                    <path
+                      d="M95 42 L60 110 L80 110 L70 168 L110 92 L88 92 L100 42 Z"
+                      fill="none"
+                      stroke="#E8FFF1"
+                      strokeWidth="1.4"
+                      opacity="0.85"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M92 50 L66 106"
+                      stroke="rgba(255,255,255,0.9)"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </div>
+
+                {/* === ENERGY ORBITAL RINGS — elliptical, tilted, around phone === */}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "65%",
+                    left: "50%",
+                    width: 460,
+                    height: 460,
+                    pointerEvents: "none",
+                    zIndex: 4,
+                    transformStyle: "preserve-3d",
+                  }}
+                >
+                  <div
+                    className="energy-orbit-1"
+                    style={{
+                      position: "absolute",
+                      top: "50%",
+                      left: "50%",
+                      width: 460,
+                      height: 460,
+                      borderRadius: "50%",
+                      border: "2px solid rgba(0,255,133,0.55)",
+                      boxShadow:
+                        "0 0 24px rgba(0,255,133,0.55), inset 0 0 24px rgba(0,255,133,0.35)",
+                    }}
+                  />
+                  <div
+                    className="energy-orbit-2"
+                    style={{
+                      position: "absolute",
+                      top: "50%",
+                      left: "50%",
+                      width: 380,
+                      height: 380,
+                      borderRadius: "50%",
+                      border: "1.5px solid rgba(0,255,133,0.45)",
+                      boxShadow:
+                        "0 0 18px rgba(0,255,133,0.45), inset 0 0 18px rgba(0,255,133,0.25)",
+                    }}
+                  />
+                  <div
+                    className="energy-orbit-3"
+                    style={{
+                      position: "absolute",
+                      top: "50%",
+                      left: "50%",
+                      width: 540,
+                      height: 540,
+                      borderRadius: "50%",
+                      border: "1px solid rgba(0,255,133,0.30)",
+                      boxShadow: "0 0 14px rgba(0,255,133,0.35)",
+                    }}
+                  />
+                </div>
+
+                {/* Mini orbit nodes (WiFi + share badges) */}
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: "18%",
+                    left: "10%",
+                    width: 36,
+                    height: 36,
+                    borderRadius: "50%",
+                    background:
+                      "linear-gradient(145deg, rgba(0,255,133,0.20), rgba(0,255,133,0.05))",
+                    border: "1px solid rgba(0,255,133,0.50)",
+                    backdropFilter: "blur(10px)",
+                    WebkitBackdropFilter: "blur(10px)",
+                    boxShadow:
+                      "0 0 16px rgba(0,255,133,0.45), inset 0 1px 0 rgba(255,255,255,0.18)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    zIndex: 6,
+                  }}
+                >
+                  <Icon name="Wifi" size={16} style={{ color: "#00FF85" }} />
+                </div>
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: "30%",
+                    right: "2%",
+                    width: 38,
+                    height: 38,
+                    borderRadius: "50%",
+                    background:
+                      "linear-gradient(145deg, rgba(0,255,133,0.20), rgba(0,255,133,0.05))",
+                    border: "1px solid rgba(0,255,133,0.50)",
+                    backdropFilter: "blur(10px)",
+                    WebkitBackdropFilter: "blur(10px)",
+                    boxShadow:
+                      "0 0 16px rgba(0,255,133,0.45), inset 0 1px 0 rgba(255,255,255,0.18)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    zIndex: 6,
+                  }}
+                >
+                  <Icon name="Share2" size={16} style={{ color: "#00FF85" }} />
+                </div>
+
+                {/* Small floating dot */}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "20%",
+                    right: "-8%",
+                    width: 6,
+                    height: 6,
+                    borderRadius: "50%",
+                    background: "#00FF85",
+                    boxShadow: "0 0 10px #00FF85, 0 0 20px rgba(0,255,133,0.6)",
+                    zIndex: 6,
+                  }}
+                />
               </div>
             </div>
           </div>
