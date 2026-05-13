@@ -396,18 +396,19 @@ export default function Index() {
                       padding: "0",
                     }}
                   >
-                    {/* Notch */}
+                    {/* Dynamic Island */}
                     <div
                       style={{
                         position: "absolute",
-                        top: 12,
+                        top: 10,
                         left: "50%",
                         transform: "translateX(-50%)",
-                        width: 95,
-                        height: 28,
+                        width: 88,
+                        height: 26,
                         background: "#000000",
                         borderRadius: 999,
                         zIndex: 5,
+                        boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.04)",
                       }}
                     />
 
@@ -490,27 +491,74 @@ export default function Index() {
                       </g>
                     </svg>
 
-                    {/* Status bar — top of phone (9:41 + WiFi/5G) */}
+                    {/* Status bar — minimal iPhone-style (time + signal/wifi/battery) */}
                     <div
                       style={{
                         position: "absolute",
                         top: 14,
-                        left: 22,
-                        right: 22,
+                        left: 24,
+                        right: 24,
                         display: "flex",
                         justifyContent: "space-between",
                         alignItems: "center",
-                        fontSize: 11,
+                        fontSize: 12,
                         fontWeight: 600,
                         color: "#FFFFFF",
                         zIndex: 6,
                       }}
                     >
-                      <span>9:41</span>
-                      <div style={{ display: "flex", gap: 5, alignItems: "center" }}>
-                        <Icon name="Signal" size={11} style={{ color: "#fff" }} />
-                        <Icon name="Wifi" size={11} style={{ color: "#fff" }} />
-                        <span style={{ fontSize: 9, fontWeight: 700, padding: "1px 4px", border: "1px solid rgba(255,255,255,0.4)", borderRadius: 3 }}>5G</span>
+                      <span style={{ letterSpacing: "-0.01em" }}>9:41</span>
+                      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+                        {/* Signal bars */}
+                        <svg width="16" height="10" viewBox="0 0 16 10" fill="none">
+                          <rect x="0" y="6" width="2.5" height="4" rx="0.5" fill="#FFFFFF" />
+                          <rect x="4" y="4" width="2.5" height="6" rx="0.5" fill="#FFFFFF" />
+                          <rect x="8" y="2" width="2.5" height="8" rx="0.5" fill="#FFFFFF" />
+                          <rect x="12" y="0" width="2.5" height="10" rx="0.5" fill="#FFFFFF" />
+                        </svg>
+                        {/* WiFi */}
+                        <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+                          <path
+                            d="M7 9.2 C 7.6 9.2 8.1 8.7 8.1 8.1 C 8.1 7.5 7.6 7 7 7 C 6.4 7 5.9 7.5 5.9 8.1 C 5.9 8.7 6.4 9.2 7 9.2 Z"
+                            fill="#FFFFFF"
+                          />
+                          <path
+                            d="M3.6 5.4 Q 7 2.8 10.4 5.4"
+                            stroke="#FFFFFF"
+                            strokeWidth="1.3"
+                            strokeLinecap="round"
+                            fill="none"
+                          />
+                          <path
+                            d="M1.2 3.2 Q 7 -1.4 12.8 3.2"
+                            stroke="#FFFFFF"
+                            strokeWidth="1.3"
+                            strokeLinecap="round"
+                            fill="none"
+                          />
+                        </svg>
+                        {/* Battery */}
+                        <svg width="24" height="11" viewBox="0 0 24 11" fill="none">
+                          <rect
+                            x="0.5"
+                            y="0.5"
+                            width="20"
+                            height="10"
+                            rx="2.5"
+                            stroke="rgba(255,255,255,0.6)"
+                            strokeWidth="1"
+                            fill="none"
+                          />
+                          <rect x="2" y="2" width="17" height="7" rx="1.3" fill="#FFFFFF" />
+                          <rect
+                            x="21"
+                            y="3.5"
+                            width="1.6"
+                            height="4"
+                            rx="0.6"
+                            fill="rgba(255,255,255,0.6)"
+                          />
+                        </svg>
                       </div>
                     </div>
 
